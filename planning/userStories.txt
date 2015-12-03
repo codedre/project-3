@@ -1,1 +1,20 @@
-Hi
+As a <role> I'd like to be able to <goal> so that <reason>
+
+* = MVP
+
+User | * sign-up using facebook | user creation is easy
+       * create a profile w/ current location & interests | other uses can see it
+          customize profile pic
+       * add points of interests (maybe to map) |
+       * search other user by interest and/or location | find potential travel companions
+       * contact other users by email | we can decide to meet
+       * view other user profile | we can decide to meet
+
+        add travel history | track my travels / other users can see it
+
+        simple blog/travel log | share my experiences / participate in community
+          upload travel photos
+
+        customize my dashboard
+
+        review other users

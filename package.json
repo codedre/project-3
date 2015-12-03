@@ -1,0 +1,23 @@
+{
+  "name": "beacon",
+  "version": "1.0.0",
+  "description": "Connect with travelers nearby",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codedre/project-3.git"
+  },
+  "author": "Andre, Tyler, Jordan and Roshana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codedre/project-3/issues"
+  },
+  "homepage": "https://github.com/codedre/project-3#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.2.9"
+  }
+}

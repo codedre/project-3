@@ -1,10 +1,40 @@
 <h2>Edit Account</h2>
 
 <form method="post" action="/signup">
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes">
+  </div>
+
+  <div class="form-group">
+    <label for="location">Current Location</label>
+    <input class="form-control" type="text" name="location" id="location" placeholder="San Fransico, CA">
+  </div>
+
+  <div class="form-group">
+    <label for="location">Home Country</label>
+    <input class="form-control" type="text" name="location" id="location" placeholder="Napal">
+  </div>
+
+  <div class="form-group">
+    <label for="interests">Interests</label>
+    <select name="interests" multiple class="form-control">
+      <option>Foodie</option>
+      <option>Hiking</option>
+      <option>Art</option>
+      <option>History</option>
+      <option>White-Water Rafting</option>
+      <option>Wildlife</option>
+      <option>Adventure</option>
+    </select>
+  </div>
+
   <div class="form-group">
     <label for="email">Email</label>
     <input class="form-control" type="text" name="email" id="email">
   </div>
+
 
   <div class="form-group">
     <label for="email">Password</label>

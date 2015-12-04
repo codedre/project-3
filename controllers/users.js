@@ -1,3 +1,6 @@
+var express = require("express");
+var app = express();
+var User = require("../models/user.js");
 var passport = require("passport");
 
 // GET /signup
@@ -42,6 +45,11 @@ function getLogout(request, response) {
 function secret(request, response){
   response.render('secret.hbs');
 }
+
+
+
+
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,

@@ -11,7 +11,7 @@ var bodyParser    = require("body-parser");
 var session       = require("express-session");
 
 // connecting to db
-mongoose.connect("mongodb://localhost/becon");
+mongoose.connect("mongodb://localhost/beacon");
 
 // setting up middlewear
 app.use(morgan("dev"));
@@ -30,7 +30,6 @@ app.use(flash());
 require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
-  // global.currentUser = req.user; optional
   res.locals.currentUser = req.user;
   next();
 });

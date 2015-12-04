@@ -33,4 +33,29 @@ router.route("/logout")
 router.route("/secret")
     .get(authenticatedUser, usersController.secret);
 
+// user#index
+// router.get('/users', function(req, res){
+//   User.find({}).then(function(req, res){
+//     res.render('views/index.hbs', {
+//       users: User.all();
+//     });
+//   });
+// });
+
+// user#show
+// router.get('/users/:id', function(req, res){
+//   User.findById(req.params.id)
+// });
+
+// user#edit
+// router.get('/users/:id/edit', function(req, res){
+//
+// });
+
+
+// user#update
+// router.patch('/users/:id', function(req, res){
+//
+// });
+
 module.exports = router;

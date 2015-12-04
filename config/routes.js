@@ -33,29 +33,18 @@ router.route("/logout")
 router.route("/secret")
     .get(authenticatedUser, usersController.secret);
 
-// user#index
-// router.get('/users', function(req, res){
-//   User.find({}).then(function(req, res){
-//     res.render('views/index.hbs', {
-//       users: User.all();
-//     });
-//   });
-// });
+router.get("/user/index", function(req,res){
+  res.render("user/index");
+});
 
-// user#show
-// router.get('/users/:id', function(req, res){
-//   User.findById(req.params.id)
-// });
+router.get("/user/:id", function(req,res){
+  res.render("user/show");
+});
 
-// user#edit
-// router.get('/users/:id/edit', function(req, res){
-//
-// });
+router.get("/user/:id/edit", function(req, res){
+  res.render("user/edit.hbs");
+});
 
 
-// user#update
-// router.patch('/users/:id', function(req, res){
-//
-// });
 
 module.exports = router;

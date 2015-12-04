@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/codedre/project-3#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.0",

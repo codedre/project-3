@@ -8,6 +8,8 @@ var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
 
+var User = require("../models/user.js");
+
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
   if (req.isAuthenticated()) return next();
@@ -33,9 +35,7 @@ router.route("/logout")
 router.route("/secret")
     .get(authenticatedUser, usersController.secret);
 
-router.get("/user/index", function(req,res){
-  res.render("user/index");
-});
+router.get("/user/index", usersController.getUserIndex);
 
 router.get("/user/:id", function(req,res){
   res.render("user/show");

@@ -40,8 +40,8 @@ function getLogout(request, response) {
 
 // Restricted page
 function secret(request, response){
+  response.render('secret.hbs');
 }
-
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,

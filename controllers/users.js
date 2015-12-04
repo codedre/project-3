@@ -46,7 +46,13 @@ function secret(request, response){
   response.render('secret.hbs');
 }
 
-
+function getUserIndex(req,res){
+  User.find({}).then(function(results) {
+    res.render("user/index", {
+      users: results
+    });
+  });
+}
 
 
 
@@ -56,5 +62,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
+  secret: secret,
+  getUserIndex : getUserIndex
 };

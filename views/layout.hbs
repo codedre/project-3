@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Beacon</title>
+  </head>
+  <body>
+    <header>
+      <ul>
+            {{#if currentUser}}
+              <li><a href="/logout">Logout {{currentUser.local.email}}</a></li>
+            {{else}}
+              <li><a href="/login">Login</a></li>
+              <li><a href="/signup">Signup</a></li>
+            {{/if}}
+              <li><a href="/secret">Secret page (only if authenticated)</a></li>
+          </ul>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
+</html>

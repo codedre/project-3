@@ -15,9 +15,9 @@ db.once("open", function () {
 
   User.remove({}).then(function(){
     forEach(userData, function(userDatum){
-      return new User(userDatum).save().then(function(){
-        process.exit();
-      });
+      return new User(userDatum).save();
+    }).then(function(){
+      process.exit();
     });
   });
 });

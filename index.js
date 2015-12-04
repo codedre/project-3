@@ -30,6 +30,7 @@ app.use(flash());
 require('./config/passport')(passport);
 
 app.use(function (req, res, next) {
+  // global.currentUser = req.user; optional
   res.locals.currentUser = req.user;
   next();
 });

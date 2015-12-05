@@ -55,13 +55,20 @@ function getUserIndex(req,res){
 }
 
 function getUserShow(req, res){
+  User.findById(req.params.id).then(function(results) {
+    res.render("user/show", {
+      user: results
+    });
+  });
+}
+
+function getUserEdit(req, res){
   User.findByIdAndUpdate(req.params.id, {$set: req.body}).then(function(results) {
     res.render("user/edit", {
       user: results
     });
   });
 }
-
 
 
 module.exports = {
@@ -72,5 +79,6 @@ module.exports = {
   getLogout: getLogout,
   secret: secret,
   getUserIndex : getUserIndex,
-  getUserShow : getUserShow
+  getUserShow : getUserShow,
+  getUserEdit : getUserEdit
 };

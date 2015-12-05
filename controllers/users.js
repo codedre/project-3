@@ -54,7 +54,15 @@ function getUserIndex(req,res){
   });
 }
 
-function editProfile(req, res){
+function getUserShow(req, res){
+  User.findById(req.params.id).then(function(results) {
+    res.render("user/show", {
+      user: results
+    });
+  });
+}
+
+function getUserEdit(req, res){
   User.findById(req.params.id).then(function(results) {
     res.render("user/edit", {
       user: results
@@ -62,7 +70,7 @@ function editProfile(req, res){
   });
 }
 
-function saveProfileChnages(req,res) {
+function patchUserEdit(req,res) {
   User.findByIdAndUpdate(req.params.id, {
     name: req.body.name,
     location: req.body.location,
@@ -74,7 +82,6 @@ function saveProfileChnages(req,res) {
   });
 }
 
-
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
@@ -83,6 +90,7 @@ module.exports = {
   getLogout: getLogout,
   secret: secret,
   getUserIndex : getUserIndex,
-  editProfile : editProfile,
-  saveProfileChnages : saveProfileChnages
+  getUserShow : getUserShow,
+  getUserEdit : getUserEdit,
+  patchUserEdit : patchUserEdit
 };

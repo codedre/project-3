@@ -35,12 +35,10 @@ router.route("/secret")
 
 router.get("/user/index", usersController.getUserIndex);
 
-// router.get("/user/:id", function(req,res){
-//   res.render("user/show");
-// });
+router.get("/user/:id", usersController.getUserShow);
 
-router.put("/user/:id", usersController.saveProfileChnages);
-router.get("/user/:id/edit", usersController.editProfile);
+router.patch("/user/:id", usersController.patchUserEdit);
+router.get("/user/:id/edit", usersController.getUserEdit);
 
 
 

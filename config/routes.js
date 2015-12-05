@@ -44,7 +44,7 @@ router.get("/user/:id", function(req,res){
 // });
 
 
-router.get("/user/:id/edit", usersController.getUserShow);
+router.get("/user/:id/edit", usersController.getUserEdit);
 
 
 

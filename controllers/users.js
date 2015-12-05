@@ -55,8 +55,8 @@ function getUserIndex(req,res){
 }
 
 function getUserShow(req, res){
-  User.findByIdAndUpdate(req.params.id, {$set: req.body}).then(function(results) {
-    res.render("user/edit", {
+  User.findById(req.params.id).then(function(results) {
+    res.render("user/show", {
       user: results
     });
   });

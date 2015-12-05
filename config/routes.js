@@ -35,9 +35,7 @@ router.route("/secret")
 
 router.get("/user/index", usersController.getUserIndex);
 
-router.get("/user/:id", function(req,res){
-  res.render("user/show");
-});
+router.get("/user/:id", usersController.getUserShow);
 
 // router.put("/user/:id", function(req,res){
 //

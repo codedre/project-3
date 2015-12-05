@@ -75,6 +75,8 @@ function patchUserEdit(req,res) {
     name: req.body.name,
     location: req.body.location,
     interests: req.body.interests,
+    photo: req.body.photo,
+    bio: req.body.bio,
     email: req.body.email,
     password: req.body.password
   }).then(function(results) {

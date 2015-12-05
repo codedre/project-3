@@ -1,3 +1,9 @@
 body {
   padding-top: 50px;
 }
+
+.profile-img {
+  width: 25%;
+  height: auto;
+  margin-bottom: 15px;
+}

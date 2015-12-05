@@ -12,10 +12,15 @@
     <input class="form-control" type="text" name="location" id="location" placeholder="San Fransico, CA" value="{{user.location}}">
   </div>
 
-  <!-- <div class="form-group">
-    <label for="location">Home Country</label>
-    <input class="form-control" type="text" name="location" id="location" placeholder="Napal">
-  </div> -->
+  <div class="form-group">
+    <label for="photo">Profile Picture</label>
+    <input class="form-control" type="text" name="photo" id="photo" placeholder="http://example.com/myImage.jpg" value="{{user.photo}}">
+  </div>
+
+  <div class="form-group">
+    <label for="bio">Biography</label>
+    <textarea class="form-control" name="bio" id="bio" placeholder="A little bit about me..." rows="3" >{{user.bio}}</textarea>
+  </div>
 
   <div class="form-group">
     <label for="interests">Interests</label>
@@ -41,5 +46,5 @@
     <input class="form-control" type="password" name="password" id="password">
   </div>
 
-  <input class="btn btn-default" type="submit">
+  <input class="btn btn-default" type="submit" value="Update Profile">
 </form>

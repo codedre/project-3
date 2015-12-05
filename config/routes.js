@@ -44,7 +44,7 @@ router.get("/user/index", usersController.getUserIndex);
 // });
 
 
-router.patch("/user/:id/edit", usersController.getUserShow);
+router.get("/user/:id/edit", usersController.getUserShow);
 
 
 

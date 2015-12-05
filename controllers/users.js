@@ -78,7 +78,7 @@ function patchUserEdit(req,res) {
     email: req.body.email,
     password: req.body.password
   }).then(function(results) {
-    res.redirect("user/index");
+    res.redirect("/user/" + req.params.id);
   });
 }
 

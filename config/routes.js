@@ -39,12 +39,8 @@ router.get("/user/index", usersController.getUserIndex);
 //   res.render("user/show");
 // });
 
-// router.put("/user/:id", function(req,res){
-//
-// });
-
-
-router.get("/user/:id/edit", usersController.getUserShow);
+router.put("/user/:id", usersController.saveProfileChnages);
+router.get("/user/:id/edit", usersController.editProfile);
 
 
 

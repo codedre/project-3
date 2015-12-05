@@ -1,21 +1,21 @@
 <h2>Edit Account</h2>
 
-<form method="post" action="/signup">
+<form method="post" action="/user/{{currentUser._id}}?_method=put">
 
   <div class="form-group">
     <label for="name">Name</label>
-    <input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes">
+    <input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes" value="{{user.name}}">
   </div>
 
   <div class="form-group">
     <label for="location">Current Location</label>
-    <input class="form-control" type="text" name="location" id="location" placeholder="San Fransico, CA">
+    <input class="form-control" type="text" name="location" id="location" placeholder="San Fransico, CA" value="{{user.location}}">
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
     <label for="location">Home Country</label>
     <input class="form-control" type="text" name="location" id="location" placeholder="Napal">
-  </div>
+  </div> -->
 
   <div class="form-group">
     <label for="interests">Interests</label>
@@ -38,7 +38,7 @@
 
   <div class="form-group">
     <label for="email">Password</label>
-    <input class="form-control" type="password" name="password" id="password" value="{{user.local.password}}">
+    <input class="form-control" type="password" name="password" id="password">
   </div>
 
   <input class="btn btn-default" type="submit">

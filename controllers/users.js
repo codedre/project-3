@@ -54,14 +54,25 @@ function getUserIndex(req,res){
   });
 }
 
-function getUserShow(req, res){
-  User.findByIdAndUpdate(req.params.id, {$set: req.body}).then(function(results) {
+function editProfile(req, res){
+  User.findById(req.params.id).then(function(results) {
     res.render("user/edit", {
       user: results
     });
   });
 }
 
+function saveProfileChnages(req,res) {
+  User.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    location: req.body.location,
+    interests: req.body.interests,
+    email: req.body.email,
+    password: req.body.password
+  }).then(function(results) {
+    res.redirect("user/index");
+  });
+}
 
 
 module.exports = {
@@ -72,5 +83,6 @@ module.exports = {
   getLogout: getLogout,
   secret: secret,
   getUserIndex : getUserIndex,
-  getUserShow : getUserShow
+  editProfile : editProfile,
+  saveProfileChnages : saveProfileChnages
 };

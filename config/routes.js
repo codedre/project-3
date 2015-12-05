@@ -37,11 +37,7 @@ router.get("/user/index", usersController.getUserIndex);
 
 router.get("/user/:id", usersController.getUserShow);
 
-// router.put("/user/:id", function(req,res){
-//
-// });
-
-
+router.patch("/user/:id", usersController.patchUserEdit);
 router.get("/user/:id/edit", usersController.getUserEdit);
 
 

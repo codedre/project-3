@@ -9,6 +9,8 @@ var morgan        = require("morgan");
 var cookieParser  = require("cookie-parser");
 var bodyParser    = require("body-parser");
 var session       = require("express-session");
+var methodOverride = require('method-override');
+
 
 // connecting to db
 mongoose.connect("mongodb://localhost/beacon");
@@ -16,7 +18,9 @@ mongoose.connect("mongodb://localhost/beacon");
 // setting up middlewear
 app.use(morgan("dev"));
 app.use(cookieParser());
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
+
 
 app.set('view engine', 'hbs');
 app.set('views','./views');

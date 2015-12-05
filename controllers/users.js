@@ -63,13 +63,24 @@ function getUserShow(req, res){
 }
 
 function getUserEdit(req, res){
-  User.findByIdAndUpdate(req.params.id, {$set: req.body}).then(function(results) {
+  User.findById(req.params.id).then(function(results) {
     res.render("user/edit", {
       user: results
     });
   });
 }
 
+function patchUserEdit(req,res) {
+  User.findByIdAndUpdate(req.params.id, {
+    name: req.body.name,
+    location: req.body.location,
+    interests: req.body.interests,
+    email: req.body.email,
+    password: req.body.password
+  }).then(function(results) {
+    res.redirect("user/index");
+  });
+}
 
 module.exports = {
   getLogin: getLogin,
@@ -80,5 +91,6 @@ module.exports = {
   secret: secret,
   getUserIndex : getUserIndex,
   getUserShow : getUserShow,
-  getUserEdit : getUserEdit
+  getUserEdit : getUserEdit,
+  patchUserEdit : patchUserEdit
 };

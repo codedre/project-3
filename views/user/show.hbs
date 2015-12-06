@@ -5,9 +5,12 @@
 <p>Location: {{user.location}}</p>
 <img class="profile-img" src="{{user.photo}}" alt="Photo of {{user.name}}">
 <p>Interests:</p>
-<ul>
-  <li>{{user.interests}}</li>
-</ul>
+<div class="btn-group">
+{{#each user.interests}}
+  <div class="btn btn-primary">{{this}}</div>
+{{/each}}
+</div>
+
 <p>Bio: {{user.bio}}</p>
 
 

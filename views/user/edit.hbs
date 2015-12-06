@@ -22,18 +22,38 @@
     <textarea class="form-control" name="bio" id="bio" placeholder="A little bit about me..." rows="3" >{{user.bio}}</textarea>
   </div>
 
-  <div class="form-group">
+  <div>
     <label for="interests">Interests</label>
-    <select name="interests" multiple class="form-control">
-      <option>Foodie</option>
-      <option>Hiking</option>
-      <option>Art</option>
-      <option>History</option>
-      <option>White-Water Rafting</option>
-      <option>Wildlife</option>
-      <option>Adventure</option>
-    </select>
   </div>
+  <div class="form-group">
+    <div class="btn-group" data-toggle="buttons">
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Foodie" autocomplete="off"> Foodie
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Hiking" autocomplete="off"> Hiking
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Art" autocomplete="off"> Art
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="History" autocomplete="off"> History
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Wildlife" autocomplete="off"> Wildlife
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Adventure" autocomplete="off"> Adventure
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Festivals" autocomplete="off"> Festivals
+      </label>
+      <label class="btn btn-primary">
+        <input type="checkbox" name="interests" value="Music" autocomplete="off"> Music
+      </label>
+    </div>
+  </div>
+
 
   <div class="form-group">
     <label for="email">Email</label>

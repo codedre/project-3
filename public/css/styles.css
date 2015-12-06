@@ -7,3 +7,12 @@ body {
   height: auto;
   margin-bottom: 15px;
 }
+
+.navbar-brand {
+  padding-top: 10px;
+}
+.navbar-brand img {
+  height: auto;
+  width: 25%;
+  border-radius: 5px;
+}

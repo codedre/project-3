@@ -48,17 +48,33 @@ function secret(request, response){
 
 function getUserIndex(req,res){
   User.find({}).then(function(results) {
-    res.render("user/index", {
-      users: results
+    res.format({
+      html: function(){
+        res.render("user/index", {
+          users: results
+        });
+      },
+      json: function(){
+        res.json(results);
+      }
     });
+
   });
 }
 
 function getUserShow(req, res){
   User.findById(req.params.id).then(function(results) {
-    res.render("user/show", {
-      user: results
+    res.format({
+      html: function() {
+        res.render("user/show", {
+          user: results
+        });
+      },
+      json: function() {
+        res.json(results);
+      }
     });
+
   });
 }
 
@@ -84,6 +100,14 @@ function patchUserEdit(req,res) {
   });
 }
 
+function deleteUserProfile(req,res) {
+  User.findByIdAndRemove( req.params.id , function(err, user) {
+    if(err){res.send(err);} else {
+      res.redirect("/user/index");
+    }
+  });
+}
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
@@ -94,5 +118,6 @@ module.exports = {
   getUserIndex : getUserIndex,
   getUserShow : getUserShow,
   getUserEdit : getUserEdit,
-  patchUserEdit : patchUserEdit
+  patchUserEdit : patchUserEdit,
+  deleteUserProfile : deleteUserProfile
 };

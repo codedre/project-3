@@ -9,7 +9,15 @@
 
   <div class="form-group">
     <label for="location">Current Location</label>
-    <input class="form-control" type="text" name="location" id="location" placeholder="San Fransico, CA" value="{{user.location}}">
+    <select name="interests" multiple class="form-control">
+      <option>North West</option>
+      <option>West</option>
+      <option>South West</option>
+      <option>Mid-West</option>
+      <option>South East</option>
+      <option>Mid-Atlantic</option>
+      <option>North East</option>
+    </select>
   </div>
 
   <div class="form-group">
@@ -67,4 +75,29 @@
   </div>
 
   <input class="btn btn-default" type="submit" value="Update Profile">
+  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#myModal">Delete Profile</button>
 </form>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title danger" id="myModalLabel">CONFIRM ACCOUT DELETION</h4>
+      </div>
+      <div class="modal-body">
+        We are so sad to see you go. But if you must know that your account will be deleted perminaltly. Are you sure you want to complete this action?
+      </div>
+      <div class="modal-footer">
+        <form action="/user/{{user._id}}?_method=delete" method="post">
+          <input type="submit" class="btn btn-danger delete" value="Delete Profile">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="confimation-modal">
+
+</div> -->

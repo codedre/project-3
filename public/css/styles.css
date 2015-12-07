@@ -1,9 +1,22 @@
 body {
-  padding-top: 50px;
+  padding-top: 55px;
 }
 
 .profile-img {
   width: 25%;
   height: auto;
   margin-bottom: 15px;
+}
+
+.navbar-brand {
+  padding-top: 10px;
+}
+.navbar-brand img {
+  height: auto;
+  width: 25%;
+  border-radius: 5px;
+}
+
+.delete {
+  float: right;
 }

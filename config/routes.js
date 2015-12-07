@@ -37,7 +37,7 @@ router.get("/user/index.:format?", usersController.getUserIndex);
 
 router.get("/user/:id.:format?", usersController.getUserShow);
 
-router.delete("user/:id", usersController.deleteUserProfile);
+router.delete("/user/:id", usersController.deleteUserProfile);
 router.patch("/user/:id", usersController.patchUserEdit);
 router.get("/user/:id/edit", usersController.getUserEdit);
 

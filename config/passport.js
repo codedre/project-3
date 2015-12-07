@@ -1,5 +1,7 @@
-var LocalStrategy = require("passport-local").Strategy;
-var User = require("../models/user");
+var FacebookStrategy  = require("passport-facebook").Strategy;
+var LocalStrategy     = require("passport-local").Strategy;
+var User              = require("../models/user");
+var env               = require("../env");
 
 module.exports = function(passport) {
 
@@ -66,4 +68,37 @@ module.exports = function(passport) {
       return callback(null, user);
     });
   }));
+
+  // Facebook login
+  passport.use('facebook', new FacebookStrategy({
+    // Here we reference the values in env.js.
+    clientID: env.facebook.clientID,
+    clientSecret: env.facebook.clientSecret,
+    callbackURL: env.facebook.callbackURL
+  }, function(token, secret, profile, done){
+    process.nextTick(function(){
+      User.findOne({'facebook.id': profile.id}, function(err, user) {
+        if(err) return done(err);
+
+        // If the user already exists, just return that user.
+        if(user){
+          return done(null, user);
+        } else {
+          // Otherwise, create a brand new user using information passed from Twitter.
+          var newUser = new User();
+
+          // Here we're saving information passed to us from Twitter.
+          newUser.facebook.id = profile.id;
+          newUser.facebook.token = token;
+          newUser.facebook.username = profile.username;
+          newUser.facebook.displayName = profile.displayName;
+
+          newUser.save(function(err){
+            if(err) throw err;
+            return done(null, newUser);
+          })
+        }
+      })
+    })
+    }));
 };

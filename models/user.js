@@ -6,7 +6,13 @@ var User = mongoose.Schema({
     email        : String,
     password     : String
   },
-
+  // TODO check keys/values for Facebook and customize.
+  facebook : {
+    id: String,
+    token: String,
+    username: String,
+    displayName: String
+  },
   name         : String,
   photo        : String,
   bio          : String,

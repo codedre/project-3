@@ -31,7 +31,16 @@ router.route("/logout")
   .get(usersController.getLogout);
 
 router.route("/secret")
-    .get(authenticatedUser, usersController.secret);
+  .get(authenticatedUser, usersController.secret);
+
+router.route('/auth/facebook')
+  .get(passport.authenticate('facebook'));
+
+router.route('/auth/facebook/callback')
+  .get(passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  }));
 
 router.get("/user/index.:format?", usersController.getUserIndex);
 

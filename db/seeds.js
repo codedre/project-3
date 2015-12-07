@@ -3,6 +3,8 @@ var mongoose = require("mongoose");
 var db = mongoose.connection;
 var userData = require("./user_data");
 
+
+// TODO Why is error a string here? Will err.message be logged?
 db.on("error", function(err){
   console.log("Oops! Mongo threw an error. Is `mongod` running?");
   console.log(err.message);

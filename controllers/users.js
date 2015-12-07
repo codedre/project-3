@@ -84,6 +84,14 @@ function patchUserEdit(req,res) {
   });
 }
 
+function deleteUserProfile(req,res) {
+  User.remove({ _id: req.params.id }, function(err, user) {
+    if(err){res.send(err);} else {
+      res.redirect("/user/index");
+    }
+  });
+}
+
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,
@@ -94,5 +102,6 @@ module.exports = {
   getUserIndex : getUserIndex,
   getUserShow : getUserShow,
   getUserEdit : getUserEdit,
-  patchUserEdit : patchUserEdit
+  patchUserEdit : patchUserEdit,
+  deleteUserProfile : deleteUserProfile
 };

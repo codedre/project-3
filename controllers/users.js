@@ -101,7 +101,7 @@ function patchUserEdit(req,res) {
 }
 
 function deleteUserProfile(req,res) {
-  User.remove({ _id: req.params.id }, function(err, user) {
+  User.findByIdAndRemove( req.params.id , function(err, user) {
     if(err){res.send(err);} else {
       res.redirect("/user/index");
     }

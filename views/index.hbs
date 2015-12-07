@@ -1,3 +1,46 @@
+{{#if currentUser}}
+<a class="btn btn-primary" href="/user/{{currentUser._id}}">My Profile</a>
+<a class="btn btn-primary" href="/logout">Logout {{currentUser.name}}</a>
+{{else}}
+<a class="btn btn-primary" href="/login">Login</a>
+<a class="btn btn-primary" href="/signup">Signup</a>
+{{/if}}
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Confirm Location</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title danger" id="myModalLabel">Confirm Location</h4>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="/user/{{currentUser._id}}?_method=patch">
+          <div class="form-group">
+            <label for="location">Current Location</label>
+            <select name="interests" multiple class="form-control">
+              <option>North West</option>
+              <option>West</option>
+              <option>South West</option>
+              <option>Mid-West</option>
+              <option>South East</option>
+              <option>Mid-Atlantic</option>
+              <option>North East</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
   $(document).ready(function() {
     $("body").css({

@@ -5,6 +5,9 @@
 {{/if}}
 
 <form method="post" action="/login">
+  <p><a class="btn btn-primary" href="/auth/facebook">Login using Facebook</a></p>
+  <p><a class="btn btn-primary" href="/auth/google">Login using Google</a></p>
+
   <div class="form-group">
     <label for="email">Email</label>
     <input class="form-control" type="text" name="email" id="email">
@@ -17,7 +20,3 @@
 
   <input class="btn btn-default" type="submit">
 </form>
-
-<p><a href="/auth/facebook">Login using Facebook</a></p>
-
-<p><a href="/auth/google">Login using Google</a></p>

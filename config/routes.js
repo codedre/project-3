@@ -33,9 +33,9 @@ router.route("/logout")
 router.route("/secret")
     .get(authenticatedUser, usersController.secret);
 
-router.get("/user/index", usersController.getUserIndex);
+router.get("/user/index.:format?", usersController.getUserIndex);
 
-router.get("/user/:id", usersController.getUserShow);
+router.get("/user/:id.:format?", usersController.getUserShow);
 
 router.delete("user/:id", usersController.deleteUserProfile);
 router.patch("/user/:id", usersController.patchUserEdit);

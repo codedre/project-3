@@ -48,17 +48,33 @@ function secret(request, response){
 
 function getUserIndex(req,res){
   User.find({}).then(function(results) {
-    res.render("user/index", {
-      users: results
+    res.format({
+      html: function(){
+        res.render("user/index", {
+          users: results
+        });
+      },
+      json: function(){
+        res.json(results);
+      }
     });
+
   });
 }
 
 function getUserShow(req, res){
   User.findById(req.params.id).then(function(results) {
-    res.render("user/show", {
-      user: results
+    res.format({
+      html: function() {
+        res.render("user/show", {
+          user: results
+        });
+      },
+      json: function() {
+        res.json(results);
+      }
     });
+
   });
 }
 

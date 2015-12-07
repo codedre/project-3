@@ -18,8 +18,13 @@ mongoose.connect("mongodb://localhost/beacon");
 // setting up middlewear
 app.use(morgan("dev"));
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
+app.use("*.json", function(req,res,next){
+  req.headers.accept = 'application/json';
+  next();
+});
 
 
 app.set('view engine', 'hbs');

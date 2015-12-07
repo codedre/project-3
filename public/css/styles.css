@@ -16,3 +16,7 @@ body {
   width: 25%;
   border-radius: 5px;
 }
+
+.delete {
+  float: right;
+}

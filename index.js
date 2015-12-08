@@ -10,13 +10,13 @@ var cookieParser   = require("cookie-parser");
 var bodyParser     = require("body-parser");
 var session        = require("express-session");
 var methodOverride = require('method-override');
-var env            = require('env');
+// var env            = require('env');
 // connecting to db
-// mongoose.connect("mongodb://localhost/beacon");
-mongoose.connect(env.MONGOLAB_URI, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
+mongoose.connect("mongodb://localhost/beacon");
+// mongoose.connect(env.MONGOLAB_URI, function (error) {
+//     if (error) console.error(error);
+//     else console.log('mongo connected');
+// });
 //test
 // setting up middlewear
 app.use(morgan("dev"));

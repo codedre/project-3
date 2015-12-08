@@ -8,7 +8,7 @@
     "photo"        : "String",
     "bio"          : "String",
     "interests"    : [],
-    "location"     : "Nepal"
+    "location"     : "South East"
   },
   {
     "local" : {
@@ -19,7 +19,7 @@
     "photo"        : "String",
     "bio"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ultrices tempor. Donec sed lectus ut nibh blandit egestas et vel neque. Sed cursus vestibulum orci, a posuere tellus varius et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     "interests"    : [],
-    "location"     : "USA"
+    "location"     : "North West"
   },
   {
     "local" : {
@@ -30,7 +30,7 @@
     "photo"        : "String",
     "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
     "interests"    : [],
-    "location"     : "USA"
+    "location"     : "Mid-Atlantic"
   },
   {
     "local" : {
@@ -41,6 +41,6 @@
     "photo"        : "String",
     "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
     "interests"    : [],
-    "location"     : "Ghana"
+    "location"     : "North East"
   }
 ]

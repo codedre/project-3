@@ -13,11 +13,11 @@ var methodOverride = require('method-override');
 
 
 // connecting to db
-mongoose.connect("mongodb://localhost/beacon");
-// mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-//     if (error) console.error(error);
-//     else console.log('mongo connected');
-// });
+// mongoose.connect("mongodb://localhost/beacon");
+mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+    if (error) console.error(error);
+    else console.log('mongo connected');
+});
 
 // setting up middlewear
 app.use(morgan("dev"));

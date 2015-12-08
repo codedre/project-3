@@ -1,14 +1,14 @@
 var UserView = function(user) {
   this.user = user;
-
-  //something like 'this.$el = $('<div class="user"....')'
-  //this.renderUsers();
-  //$(".users").append(this.$el);
+  this.$el = $('<div class="user></div>');
 };
 
 UserView.prototype = {
   renderUsers: function() {
     var self = this;
+
+
+
     // display username, location, and interests
     // link to show page
   },

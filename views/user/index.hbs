@@ -1,5 +1,39 @@
 <h2>User Index</h2>
 
+<ul class="nav nav-pills" role="tablist">
+  <li role="presentation" class="dropdown open">
+    <a id="location-dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+      Location
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="location-dropdown">
+      <li><a href="#">North West</a></li>
+      <li><a href="#">West</a></li>
+      <li><a href="#">South West</a></li>
+      <li><a href="#">Mid-West</a></li>
+      <li><a href="#">South East</a></li>
+      <li><a href="#">Mid-Atlantic</a></li>
+      <li><a href="#">North East</a></li>
+    </ul>
+  </li>
+  <li role="presentation" class="dropdown">
+    <a id="interest-dropdown" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+      Interest
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="interest-dropdown">
+      <li><a href="#">Foodie</a></li>
+      <li><a href="#">Hiking</a></li>
+      <li><a href="#">Art</a></li>
+      <li><a href="#">History</a></li>
+      <li><a href="#">Wildlife</a></li>
+      <li><a href="#">Adventure</a></li>
+      <li><a href="#">Festivals</a></li>
+      <li><a href="#">Culture</a></li>
+    </ul>
+  </li>
+</ul>
+
 {{#each users}}
-  <p><a href="/user/{{_id}}">{{local.email}}</a></p>
+  <p><a href="/user/{{_id}}">{{local.email}}</a> | {{location}} | {{interests}}</p>
 {{/each}}

@@ -12,11 +12,11 @@ var session        = require("express-session");
 var methodOverride = require('method-override');
 
 // connecting to db
-// mongoose.connect("mongodb://localhost/beacon");
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
+mongoose.connect("mongodb://localhost/beacon");
+// mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+//     if (error) console.error(error);
+//     else console.log('mongo connected');
+// });
 
 // setting up middlewear
 app.use(morgan("dev"));
@@ -48,10 +48,6 @@ app.use(function (req, res, next) {
 
 var routes = require('./config/routes');
 app.use(routes);
-
-// app.listen(4000, function(){
-//   console.log("app listening on port 4000");
-// });
 
 app.listen(process.env.PORT || 4000, function(){
    console.log("* I'm working! Go to http://127.0.0.1:4000");

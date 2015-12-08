@@ -74,9 +74,11 @@ module.exports = function(passport) {
     // Here we reference the values in env.js.
     clientID: env.facebook.clientID,
     clientSecret: env.facebook.clientSecret,
-    callbackURL: env.facebook.callbackURL
+    callbackURL: env.facebook.callbackURL,
+    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){
+      console.log(profile);
       User.findOne({'facebook.id': profile.id}, function(err, user) {
         if(err) return done(err);
 
@@ -90,15 +92,17 @@ module.exports = function(passport) {
           // Here we're saving information passed to us from Twitter.
           newUser.facebook.id = profile.id;
           newUser.facebook.token = token;
-          newUser.facebook.username = profile.username;
-          newUser.facebook.displayName = profile.displayName;
+          newUser.name = profile.displayName;
+          newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+          newUser.facebook.provider = profile.provider;
+          newUser.bio = profile.bio;
 
           newUser.save(function(err){
             if(err) throw err;
             return done(null, newUser);
-          })
+          });
         }
-      })
-    })
-    }));
+      });
+    });
+  }));
 };

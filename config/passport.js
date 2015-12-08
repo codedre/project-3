@@ -72,9 +72,9 @@ module.exports = function(passport) {
   // Facebook login
   passport.use('facebook', new FacebookStrategy({
     // Here we reference the values in env.js.
-    clientID: process.env.facebook.clientID,
-    clientSecret: process.env.facebook.clientSecret,
-    callbackURL: process.env.facebook.callbackURL,
+    clientID: process.env.clientID,
+    clientSecret: process.env.clientSecret,
+    callbackURL: process.env.callbackURL,
     profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){

@@ -50,8 +50,8 @@ router.route('/auth/google')
 
 router.route('/auth/google/callback')
   .get(passport.authenticate('google', {
-    successRedirect: '/auth/google/success',
-    failureRedirect: '/auth/google/failure'
+    successRedirect: '/',
+    failureRedirect: '/login'
   }));
 
 router.get("/user/index.:format?", usersController.getUserIndex);

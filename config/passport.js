@@ -75,9 +75,11 @@ module.exports = function(passport) {
     // Here we reference the values in env.js.
     clientID: env.facebook.clientID,
     clientSecret: env.facebook.clientSecret,
-    callbackURL: env.facebook.callbackURL
+    callbackURL: env.facebook.callbackURL,
+    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){
+      console.log(profile);
       User.findOne({'facebook.id': profile.id}, function(err, user) {
         if(err) return done(err);
 
@@ -91,48 +93,54 @@ module.exports = function(passport) {
           // Here we're saving information passed to us from Facebook.
           newUser.facebook.id = profile.id;
           newUser.facebook.token = token;
-          newUser.facebook.username = profile.username;
-          newUser.facebook.displayName = profile.displayName;
+          newUser.name = profile.displayName;
+          newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+          newUser.facebook.provider = profile.provider;
+          newUser.bio = profile.bio;
 
           newUser.save(function(err){
             if(err) throw err;
             return done(null, newUser);
-          })
+          });
         }
-      })
-    })
-    }));
+      });
+    });
+  }));
 
-    //Google Login
-  passport.use('google', new GoogleStrategy({
-    // Here we reference the values in env.js.
-    clientID: env.google.clientID,
-    clientSecret: env.google.clientSecret,
-    callbackURL: env.google.callbackURL
-  }, function(token, secret, profile, done){
-    process.nextTick(function(){
-      User.findOne({'google.id': profile.id}, function(err, user) {
-        if(err) return done(err);
+  // Facebook login
+    passport.use('google', new GoogleStrategy({
+      // Here we reference the values in env.js.
+      clientID: env.google.clientID,
+      clientSecret: env.google.clientSecret,
+      callbackURL: env.google.callbackURL,
+      profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
+    }, function(token, secret, profile, done){
+      process.nextTick(function(){
+        console.log(profile);
+        User.findOne({'google.id': profile.id}, function(err, user) {
+          if(err) return done(err);
 
-        // If the user already exists, just return that user.
-        if(user){
-          return done(null, user);
-        } else {
-          // Otherwise, create a brand new user using information passed from Google.
-          var newUser = new User();
+          // If the user already exists, just return that user.
+          if(user){
+            return done(null, user);
+          } else {
+            // Otherwise, create a brand new user using information passed from Google.
+            var newUser = new User();
 
-          // Here we're saving information passed to us from Google.
-          newUser.google.id = profile.id;
-          newUser.google.token = token;
-          newUser.google.name = profile.name;
-          newUser.google.displayName = profile.displayName;
+            // Here we're saving information passed to us from Google.
+            newUser.google.id = profile.id;
+            newUser.google.token = token;
+            newUser.name = profile.displayName;
+            newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+            newUser.google.provider = profile.provider;
+            newUser.bio = profile.bio;
 
-          newUser.save(function(err){
-            if(err) throw err;
-            return done(null, newUser);
-          })
-        }
-      })
-    })
+            newUser.save(function(err){
+              if(err) throw err;
+              return done(null, newUser);
+            });
+          }
+        });
+      });
     }));
 };

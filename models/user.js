@@ -6,18 +6,24 @@ var User = mongoose.Schema({
     email        : String,
     password     : String
   },
-  // TODO check keys/values for Facebook and customize.
+  // check keys/values for Facebook and customize.
   facebook : {
     id: String,
     token: String,
     username: String,
     displayName: String
   },
-  name         : String,
-  photo        : String,
-  bio          : String,
-  interests    : [],
-  location     : String
+  google : {
+    id: String,
+    token: String,
+    name: String,
+    displayName: String
+  },
+    name         : String,
+    photo        : String,
+    bio          : String,
+    interests    : [],
+    location     : String
 });
 
 User.methods.encrypt = function(password) {

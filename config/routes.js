@@ -42,6 +42,18 @@ router.route('/auth/facebook/callback')
     failureRedirect: '/login'
   }));
 
+router.route('/auth/google')
+  .get(passport.authenticate('google', { scope:
+    [ 'https://www.googleapis.com/auth/plus.login',
+    'https://www.googleapis.com/auth/plus.profile.emails.read' ]
+  }));
+
+router.route('/auth/google/callback')
+  .get(passport.authenticate('google', {
+    successRedirect: '/auth/google/success',
+    failureRedirect: '/auth/google/failure'
+  }));
+
 router.get("/user/index.:format?", usersController.getUserIndex);
 
 router.get("/user/:id.:format?", usersController.getUserShow);

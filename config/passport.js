@@ -1,4 +1,5 @@
 var FacebookStrategy  = require("passport-facebook").Strategy;
+var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
 var env               = require("../env");
@@ -84,14 +85,47 @@ module.exports = function(passport) {
         if(user){
           return done(null, user);
         } else {
-          // Otherwise, create a brand new user using information passed from Twitter.
+          // Otherwise, create a brand new user using information passed from Facebook.
           var newUser = new User();
 
-          // Here we're saving information passed to us from Twitter.
+          // Here we're saving information passed to us from Facebook.
           newUser.facebook.id = profile.id;
           newUser.facebook.token = token;
           newUser.facebook.username = profile.username;
           newUser.facebook.displayName = profile.displayName;
+
+          newUser.save(function(err){
+            if(err) throw err;
+            return done(null, newUser);
+          })
+        }
+      })
+    })
+    }));
+
+    //Google Login
+  passport.use('google', new GoogleStrategy({
+    // Here we reference the values in env.js.
+    clientID: env.google.clientID,
+    clientSecret: env.google.clientSecret,
+    callbackURL: env.google.callbackURL
+  }, function(token, secret, profile, done){
+    process.nextTick(function(){
+      User.findOne({'google.id': profile.id}, function(err, user) {
+        if(err) return done(err);
+
+        // If the user already exists, just return that user.
+        if(user){
+          return done(null, user);
+        } else {
+          // Otherwise, create a brand new user using information passed from Google.
+          var newUser = new User();
+
+          // Here we're saving information passed to us from Google.
+          newUser.google.id = profile.id;
+          newUser.google.token = token;
+          newUser.google.name = profile.name;
+          newUser.google.displayName = profile.displayName;
 
           newUser.save(function(err){
             if(err) throw err;

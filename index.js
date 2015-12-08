@@ -10,9 +10,6 @@ var cookieParser   = require("cookie-parser");
 var bodyParser     = require("body-parser");
 var session        = require("express-session");
 var methodOverride = require('method-override');
-var dotenv         = require('dotenv').load();
-var env            = require("env");
-
 
 // connecting to db
 // mongoose.connect("mongodb://localhost/beacon");

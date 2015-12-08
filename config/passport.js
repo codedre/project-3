@@ -70,39 +70,39 @@ module.exports = function(passport) {
   }));
 
   // Facebook login
-  // passport.use('facebook', new FacebookStrategy({
-  //   // Here we reference the values in env.js.
-  //   clientID: env.facebook.clientID,
-  //   clientSecret: env.facebook.clientSecret,
-  //   callbackURL: env.facebook.callbackURL,
-  //   profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
-  // }, function(token, secret, profile, done){
-  //   process.nextTick(function(){
-  //     console.log(profile);
-  //     User.findOne({'facebook.id': profile.id}, function(err, user) {
-  //       if(err) return done(err);
-  //
-  //       // If the user already exists, just return that user.
-  //       if(user){
-  //         return done(null, user);
-  //       } else {
-  //         // Otherwise, create a brand new user using information passed from Twitter.
-  //         var newUser = new User();
-  //
-  //         // Here we're saving information passed to us from Twitter.
-  //         newUser.facebook.id = profile.id;
-  //         newUser.facebook.token = token;
-  //         newUser.name = profile.displayName;
-  //         newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
-  //         newUser.facebook.provider = profile.provider;
-  //         newUser.bio = profile.bio;
-  //
-  //         newUser.save(function(err){
-  //           if(err) throw err;
-  //           return done(null, newUser);
-  //         });
-  //       }
-  //     });
-  //   });
-  // }));
+  passport.use('facebook', new FacebookStrategy({
+    // Here we reference the values in env.js.
+    clientID: process.env.facebook.clientID,
+    clientSecret: process.env.facebook.clientSecret,
+    callbackURL: process.env.facebook.callbackURL,
+    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
+  }, function(token, secret, profile, done){
+    process.nextTick(function(){
+      console.log(profile);
+      User.findOne({'facebook.id': profile.id}, function(err, user) {
+        if(err) return done(err);
+
+        // If the user already exists, just return that user.
+        if(user){
+          return done(null, user);
+        } else {
+          // Otherwise, create a brand new user using information passed from Twitter.
+          var newUser = new User();
+
+          // Here we're saving information passed to us from Twitter.
+          newUser.facebook.id = profile.id;
+          newUser.facebook.token = token;
+          newUser.name = profile.displayName;
+          newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+          newUser.facebook.provider = profile.provider;
+          newUser.bio = profile.bio;
+
+          newUser.save(function(err){
+            if(err) throw err;
+            return done(null, newUser);
+          });
+        }
+      });
+    });
+  }));
 };

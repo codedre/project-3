@@ -1,7 +1,7 @@
 <a href="/user/index" class="btn btn-primary">Back to User Index</a>
 <a class="user-controls btn btn-success" href="/user/{{user._id}}/edit">Edit Profile</a>
 <p>Name: {{user.name}}</p>
-<p>Email: {{user.local.email}}</p>
+<a class="btn btn-primary" href="mailto:{{user.local.email}}">Contact</a>
 <p>Location: {{user.location}}</p>
 <img class="profile-img" src="{{user.photo}}" alt="Photo of {{user.name}}">
 <p>Interests:</p>

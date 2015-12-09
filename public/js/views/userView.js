@@ -1,22 +1,33 @@
 var UserView = function(user) {
   this.user = user;
-  this.$el = $('.container');
+  this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
+  this.$searchContainer = $('<div class="search-container"></div>');
 
 
 };
 
 UserView.prototype = {
-  renderUsers: function() {
+  renderUsers: function(user) {
     var self = this;
-    self.$el.html(self.userTemplate(self.user));
-
-    $("body").append(self.$el);
+    // self.$userContainer.html(self.userTemplate(self.user));
+    var block = $('<div class="card-block"></div>');
+    self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
+    block.append('<h2 class="card-title">' + user.name + '</h2>');
+    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
+    var unordered = $('<ul></ul>');
+    for (var i=0; i < user.interests.length; i++) {
+      unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
+    }
+    block.append(unordered);
+    self.$userCard.append(block);
+    console.log(self.$userCard);
+    $(".user-container").append(self.$userCard);
   },
   renderSearch: function() {
     var self = this;
-    self.$el.html(self.searchTemplate());
+    self.$searchContainer.html(self.searchTemplate());
 
-    $("body").append(self.$el);
+    $(".row").append(self.$searchContainer);
   },
   filterInterests: function() {
     // have search as static form with dropdowns on page, on submit
@@ -28,15 +39,6 @@ UserView.prototype = {
   },
   userTemplate: function(user) {
     var html = $('<div class="card"></div>');
-    var block = $('<div class="card-block"></div>');
-    html.append('<img class="img-circle" src="'+ user.photo +'">');
-    block.append('<h2 class="card-title">' + user.name + '</h2>');
-    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
-    var unordered = $('<ul></ul>');
-    for (var i=0; i < user.interests.length; i++) {
-      unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
-    }
-    block.append(unordered);
     html.append(block);
     return(html);
   },

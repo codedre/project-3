@@ -23,6 +23,15 @@ User.fetch = function() {
   return req;
 };
 
-// User.prototype = {
-//   // something (in tunr we had fetchSongs, update, reload)
-// };
+User.prototype = {
+  // something (in tunr we had fetchSongs, update, reload)
+  queryLocation: function() {
+    // somehow get location from filter options and use here
+
+    // trying to get this package to work https://www.npmjs.com/package/json-query
+    // var data = User.fetch();
+    console.log("queryLocation");
+    console.log(data);
+    console.log(jsonQuery('loaction=Mid-Atlantic', {data: data}));
+  }
+};

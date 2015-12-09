@@ -5,9 +5,9 @@
       "password"     : "String"
     },
     "name"         : "Roshana Devkota",
-    "photo"        : "String",
+    "photo"        : "https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "bio"          : "String",
-    "interests"    : [],
+    "interests"    : ["Foodie","Art","History"],
     "location"     : "South East"
   },
   {
@@ -16,9 +16,9 @@
       "password"     : "String"
     },
     "name"         : "Tyler Crosse",
-    "photo"        : "String",
+    "photo"        : "https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "bio"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ultrices tempor. Donec sed lectus ut nibh blandit egestas et vel neque. Sed cursus vestibulum orci, a posuere tellus varius et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-    "interests"    : [],
+    "interests"    : ["Culture","Hiking","Adventure","Art"],
     "location"     : "North West"
   },
   {
@@ -27,9 +27,9 @@
       "password"     : "String"
     },
     "name"         : "Jordan",
-    "photo"        : "String",
+    "photo"        : "https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
-    "interests"    : [],
+    "interests"    : ["Foodie","Art","Hiking","Wildlife"],
     "location"     : "Mid-Atlantic"
   },
   {
@@ -38,9 +38,9 @@
       "password"     : "String"
     },
     "name"         : "Andre Shonubi",
-    "photo"        : "String",
+    "photo"        : "https://pixabay.com/static/uploads/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
     "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
-    "interests"    : [],
+    "interests"    : ["Foodie","Culture","Adventure"],
     "location"     : "North East"
   }
 ]

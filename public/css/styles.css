@@ -20,3 +20,8 @@ body {
 .delete {
   float: right;
 }
+
+.img-circle {
+  width: 120px;
+  height: auto;
+}

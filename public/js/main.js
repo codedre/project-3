@@ -8,9 +8,18 @@ $(document).ready(function() {
   // });
 
   User.fetch().then(function(users){
+    var renSearch = new UserView().renderSearch();
+    // return collection based on search params
+
+    // render every user in cursor
     users.forEach( function(user) {
-      var view = new UserView(user).renderUsers();
+      var renUsers = new UserView(user).renderUsers();
     });
   });
+
+  var query = function() {
+    User.queryLocation();
+  };
+  query();
 
 });

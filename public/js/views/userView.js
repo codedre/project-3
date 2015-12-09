@@ -1,6 +1,6 @@
 var UserView = function(user) {
   this.user = user;
-  this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
+  this.$userCard = $('<div class="card col-xs-12 col-md-4 col-lg-3"></div>');
   this.$searchContainer = $('<div class="search-container"></div>');
 
 

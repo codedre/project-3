@@ -10,14 +10,26 @@ var staticsController = require('../controllers/statics');
 
 function authenticatedUser(req, res, next) {
   // If the user is authenticated, then we continue the execution
-  if (req.isAuthenticated()) return next();
-
+  if (req.isAuthenticated()){
+    res.json({isAuthenticated : "true"});
+    return next();
+  } else {
+    res.json({isAuthenticated : "false"});
+  }
+    // res.redirect('/');
   // Otherwise the request is always redirected to the home page
-  res.redirect('/');
 }
 
 router.route('/')
   .get(staticsController.home);
+
+router.route('/auth').get(function(req,res){
+  if (req.user){
+    res.json({isAuthenticated : "true"});
+  }else {
+    res.json({isAuthenticated : "false"});
+  }
+});
 
 router.route('/signup')
   .get(usersController.getSignup)

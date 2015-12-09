@@ -1,10 +1,15 @@
 $(document).ready(function() {
 
+  $.getJSON('/auth').then(function(json) {
+    console.log(json);
+  });
+
   $(this).on("click", function() {
     console.log(event.target);
     var $target = $(event.target)
     if ($target.is(".card")) {
       console.log("THIS IS A CARD");
+      console.log($target.id);
     }
   });
 

@@ -12,6 +12,7 @@ UserView.prototype = {
     // self.$userContainer.html(self.userTemplate(self.user));
     var block = $('<div class="card-block"></div>');
     self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
+    self.$userCard.attr('id', user.id);
     block.append('<h2 class="card-title">' + user.name + '</h2>');
     block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
     var unordered = $('<ul></ul>');

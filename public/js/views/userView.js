@@ -1,6 +1,6 @@
 var UserView = function(user) {
   this.user = user;
-  this.$el = $('<div class="users"></div>');
+  this.$el = $('.container');
 
 
 };
@@ -44,7 +44,17 @@ UserView.prototype = {
     var html = $('<div class="filter"></div>');
     html.append('<p>Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> Travelers</p>');
     html.append('<p>Interested in <a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
-
+    // html.append(this.locationFilterTemplate());
     return(html);
-  }
+  },
+  locationFilterTemplate: function() {
+    var html = $('<div id="filterGroup"></div>');
+    var select = ('<select class="filter option-set" data-filter-group="location"></select>');
+    select.append('<option data-filter-value=".red">Red</option>');
+    select.append('<option data-filter-value=".green">Green</option>');
+    select.append('<option data-filter-value=".blue">Blue</option>');
+    html.append(select);
+    return(html);
+  },
+  interestFilterTemplate: function() {}
 };

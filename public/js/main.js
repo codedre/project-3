@@ -8,6 +8,7 @@ $(document).ready(function() {
     var renSearch = new UserView().renderSearch();
   };
   userSearch();
+
   // render users
   User.fetch().then(function(users){
     $('.row').append("<div class='user-container'></div>");

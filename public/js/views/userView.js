@@ -10,9 +10,20 @@ var UserView = function(user) {
   });
 
   $('#filterLocation').change(function() {
-    var val = $('#filterLocation option:selected').text();
+    var val = $('#filterLocation option:selected').val();
     console.log(val);
+
+    var $cards = $(".card-text");
+
+    $cards.each(function(index, el){
+      $el = $(el);
+      if ($el.text() != val) {
+        console.log($el);
+        $el.parents(':eq(1)').hide();
+      }
+    });
   });
+
 };
 
 UserView.prototype = {
@@ -77,5 +88,8 @@ UserView.prototype = {
     // filterGroup.append(select);
     // return(filterGroup);
   },
-  interestFilterTemplate: function() {}
+  interestFilterTemplate: function() {},
+  clearUsers: function() {
+    $(".user-container").html("");
+  }
 };

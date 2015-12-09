@@ -14,6 +14,7 @@
     <script type="text/javascript" src="/js/models/user.js"></script>
     <script type="text/javascript" src="/js/views/userView.js"></script>
 
+    <script type="text/javascript" src="/js/views/filterView.js"></script>
 
     </script>
   </head>
@@ -32,8 +33,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="/user/index">Home</a></li>
-            <li><a href="#">Community</a></li>
+            <!-- <li class="active"><a href="/user/index">Home</a></li> -->
             {{#if currentUser}}
               <li><a href="/user/{{currentUser._id}}">My Profile</a></li>
               <li><a href="/logout">Logout {{currentUser.name}}</a></li>

@@ -1,6 +1,8 @@
 var UserView = function(user) {
   this.user = user;
-  this.$el = $('<div class="user"></div>');
+  this.$el = $('.container');
+
+
 };
 
 UserView.prototype = {
@@ -9,15 +11,12 @@ UserView.prototype = {
     self.$el.html(self.userTemplate(self.user));
 
     $("body").append(self.$el);
-
-
-
-    // display username, location, and interests
-    // link to show page
   },
   renderSearch: function() {
-    // start with search as static form, this will be used if need to remove the search
-    // and regenerate it at some point
+    var self = this;
+    self.$el.html(self.searchTemplate());
+
+    $("body").append(self.$el);
   },
   filterInterests: function() {
     // have search as static form with dropdowns on page, on submit
@@ -28,12 +27,34 @@ UserView.prototype = {
     // render apprpriate users
   },
   userTemplate: function(user) {
-    var html = $("<div>");
-    html.append("<h2>" + user.name + "</h2>");
-    // html.append("<img class='artist-photo' src='" + artist.photoUrl + "'>");
-    // html.append("<button class='showSongs'>Show Songs</button>");
-    // html.append("<button class='editArtist'>Edit Artist</button>");
-    // html.append("<div class='songs'></div>");
+    var html = $('<div class="card"></div>');
+    var block = $('<div class="card-block"></div>');
+    html.append('<img class="img-circle" src="'+ user.photo +'">');
+    block.append('<h2 class="card-title">' + user.name + '</h2>');
+    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
+    var unordered = $('<ul></ul>');
+    for (var i=0; i < user.interests.length; i++) {
+      unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
+    }
+    block.append(unordered);
+    html.append(block);
     return(html);
-  }
+  },
+  searchTemplate: function() {
+    var html = $('<div class="filter"></div>');
+    html.append('<p>Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> Travelers</p>');
+    html.append('<p>Interested in <a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
+    // html.append(this.locationFilterTemplate());
+    return(html);
+  },
+  locationFilterTemplate: function() {
+    var html = $('<div id="filterGroup"></div>');
+    var select = ('<select class="filter option-set" data-filter-group="location"></select>');
+    select.append('<option data-filter-value=".red">Red</option>');
+    select.append('<option data-filter-value=".green">Green</option>');
+    select.append('<option data-filter-value=".blue">Blue</option>');
+    html.append(select);
+    return(html);
+  },
+  interestFilterTemplate: function() {}
 };

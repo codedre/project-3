@@ -1,16 +1,20 @@
 $(document).ready(function() {
-  // $("body").css({
-  //   "background"            : "no-repeat",
-  //   "background-image"      : "url(images/bg_home.jpg)",
-  //   "background-position"   : "center center",
-  //   "background-attachment" : "fixed",
-  //   "background-size"       : "cover"
-  // });
+
+  // RENDER SEARCH + RETURNED USERS
+  var userSearch = function() {
+    var renSearch = new UserView().renderSearch();
+
+  };
+  userSearch();
 
   User.fetch().then(function(users){
+    // return collection based on search params
+    
+    // render every user in cursor
     users.forEach( function(user) {
-      var view = new UserView(user).renderUsers();
+      var renUsers = new UserView(user).renderUsers();
     });
   });
+
 
 });

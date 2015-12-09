@@ -3,7 +3,16 @@ var UserView = function(user) {
   this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
   this.$searchContainer = $('<div class="search-container"></div>');
 
+  $(this.$userCard).on("click", function() {
+    console.log(this.id);
+    // CLEAR EVERYTHING & RENDER USER#SHOW
+    console.log("CLEAR EVERYTHING & RENDER USER#SHOW");
+  });
 
+  $('#filterLocation').change(function() {
+    var val = $('#filterLocation option:selected').text();
+    console.log(val);
+  });
 };
 
 UserView.prototype = {
@@ -21,7 +30,6 @@ UserView.prototype = {
     }
     block.append(unordered);
     self.$userCard.append(block);
-    console.log(self.$userCard);
     $(".user-container").append(self.$userCard);
   },
   renderSearch: function() {
@@ -39,25 +47,35 @@ UserView.prototype = {
     // render apprpriate users
   },
   userTemplate: function(user) {
-    var html = $('<div class="card"></div>');
-    html.append(block);
-    return(html);
+    // var html = $('<div class="card"></div>');
+    // html.append(block);
+    // return(html);
   },
   searchTemplate: function() {
     var html = $('<div class="filter"></div>');
     html.append('<p>Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> Travelers</p>');
     html.append('<p>Interested in <a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
-    // html.append(this.locationFilterTemplate());
+    var filterGroup = $('<div id="filterGroup"></div>');
+    var sel = $('<select class="btn btn-warning" id="filterLocation"></select>');
+    sel.append('<option name="northWest">North West</option>');
+    sel.append('<option name="west">West</option>');
+    sel.append('<option name="southWest">South West</option>');
+    sel.append('<option name="mid-west">Mid-West</option>');
+    sel.append('<option name="southEast">South East</option>');
+    sel.append('<option name="mid-atlantic">mid-atlantic</option>');
+    sel.append('<option name="northEast">North East</option>');
+    filterGroup.append(sel);
+    html.append(filterGroup);
     return(html);
   },
   locationFilterTemplate: function() {
-    var html = $('<div id="filterGroup"></div>');
-    var select = ('<select class="filter option-set" data-filter-group="location"></select>');
-    select.append('<option data-filter-value=".red">Red</option>');
-    select.append('<option data-filter-value=".green">Green</option>');
-    select.append('<option data-filter-value=".blue">Blue</option>');
-    html.append(select);
-    return(html);
+    // var filterGroup = $('<div id="filterGroup"></div>');
+    // var select = ('<select class="filter option-set" data-filter-group="location"></select>');
+    // select.append('<option data-filter-value=".red">Red</option>');
+    // select.append('<option data-filter-value=".green">Green</option>');
+    // select.append('<option data-filter-value=".blue">Blue</option>');
+    // filterGroup.append(select);
+    // return(filterGroup);
   },
   interestFilterTemplate: function() {}
 };

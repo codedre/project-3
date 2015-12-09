@@ -10,13 +10,13 @@ body {
 }
 
 .navbar-brand {
-  padding-top: 10px;
+  font-size: 1.7em;
 }
-.navbar-brand img {
+/*.navbar-brand img {
   height: auto;
   width: 25%;
   border-radius: 5px;
-}
+}*/
 
 .delete {
   float: right;

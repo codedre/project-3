@@ -1,6 +1,6 @@
 body {
   padding-top: 55px;
-  background-color: #F0EFEB;
+  /*background-color: #F0EFEB;*/
 }
 
 .profile-img {
@@ -26,6 +26,7 @@ body {
 /*==================
 Card
 ==================*/
+
 .card {
   display: inline-block;
   text-align: center;
@@ -57,4 +58,110 @@ Card
   margin-top: 20px;
   width: 160px;
   height: auto;
+}
+
+
+/*==================
+Profile
+==================*/
+
+.profile-container {
+  margin: 0 auto;
+  margin-top: 120px;
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  vertical-align: top;
+}
+
+/* Left Container */
+
+#left-container {
+  display: inline-block;
+  vertical-align: top;
+  width: 24%;
+  text-align: center;
+  margin-right: 7%;
+}
+
+#left-container h3 {
+  font-family: 'museo', sans-serif;
+}
+
+#profile-photo {
+  border-radius: 360px;
+  width: 90%;
+}
+
+#interests {
+  margin-top: 10px;
+  text-align: left;
+  padding: 0px;
+}
+
+#interests li {
+  margin-right: 4px;
+  margin-bottom: 5px;
+  background-color: #fcd945;
+  border: 0px;
+  font-size: 12px;
+  color: black;
+}
+
+#interests li:hover {
+  background-color: black;
+  color: white;
+}
+
+
+/* Right Container */
+
+#right-container {
+  vertical-align: top;
+  display: inline-block;
+  width: 59%;
+}
+
+#right-container h1 {
+  margin-top: 0px;
+  font-family: 'museo', sans-serif;
+  font-size: 50px;
+  letter-spacing: -1px;
+}
+
+#right-container h4 {
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: .12 5px;
+}
+
+#right-container div {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-top: 1px solid #808285;
+  width: 100%;
+}
+
+#right-container p {
+  width: 85%;
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+#edit-profile {
+  margin-top: 20px;
+  border: 1px solid #808285;
+  padding: 0 10px;
+  height: 33px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: .15px;
+  background-color: white;
+}
+
+#edit-profile:hover {
+  background-color: black;
+  color: white;
 }

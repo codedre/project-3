@@ -1,5 +1,6 @@
 body {
   padding-top: 55px;
+  background-color: #F0EFEB;
 }
 
 .profile-img {
@@ -9,14 +10,51 @@ body {
 }
 
 .navbar-brand {
-  padding-top: 10px;
+  font-size: 1.7em;
 }
-.navbar-brand img {
+/*.navbar-brand img {
   height: auto;
   width: 25%;
   border-radius: 5px;
-}
+}*/
 
 .delete {
   float: right;
+}
+
+
+/*==================
+Card
+==================*/
+.card {
+  display: inline-block;
+  text-align: center;
+  background: #FAFAFA;
+  box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+  border-radius: 3px;
+  width: 280px;
+  height: 360px;
+  margin: 10px;
+}
+
+.card ul {
+  padding: 0;
+}
+
+.card-title {
+  font-size: 20px;
+}
+
+.card-text {
+  font-size: 14px;
+}
+
+.card li.btn {
+  margin: 2px;
+}
+
+.img-circle {
+  margin-top: 20px;
+  width: 160px;
+  height: auto;
 }

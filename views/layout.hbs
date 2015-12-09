@@ -3,31 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="/css/styles.css" media="screen" title="no title" charset="utf-8">
     <title>Beacon</title>
+    <!-- <script src="https://use.typekit.net/wsk1ska.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://use.typekit.net/wsk1ska.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <!-- Facebook SDK for Javascript START (May not need this) -->
-    <!-- <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '806241496153150',
-          xfbml      : true,
-          version    : 'v2.5'
-        });
-      };
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/models/user.js"></script>
+    <script type="text/javascript" src="/js/views/userView.js"></script>
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script> -->
-    <!-- Facebook SDK END -->
+    <script type="text/javascript" src="/js/views/filterView.js"></script>
+
+    </script>
   </head>
   <body>
     <header>
@@ -40,12 +29,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/"><img alt="Beacon" src="/images/logo.png"></a>
+          <a class="navbar-brand" href="/">Beacon</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="/user/index">Home</a></li>
-            <li><a href="#">Community</a></li>
+            <!-- <li class="active"><a href="/user/index">Home</a></li> -->
             {{#if currentUser}}
               <li><a href="/user/{{currentUser._id}}">My Profile</a></li>
               <li><a href="/logout">Logout {{currentUser.name}}</a></li>
@@ -62,9 +50,5 @@
     <main class="container">
       {{{body}}}
     </main>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="https://use.typekit.net/wsk1ska.js"></script>
-    <script>try{Typekit.load({ async: true });}catch(e){}</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   </body>
 </html>

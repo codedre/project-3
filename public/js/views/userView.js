@@ -1,6 +1,6 @@
 var UserView = function(user) {
   this.user = user;
-  this.$el = $('<div class="user"></div>');
+  this.$el = $('<div class="users"></div>');
 
 
 };
@@ -31,7 +31,7 @@ UserView.prototype = {
     var block = $('<div class="card-block"></div>');
     html.append('<img class="img-circle" src="'+ user.photo +'">');
     block.append('<h2 class="card-title">' + user.name + '</h2>');
-    block.append('<p class="card-text">'+ user.location +'</p>');
+    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
     var unordered = $('<ul></ul>');
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');

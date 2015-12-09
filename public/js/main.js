@@ -1,12 +1,6 @@
 $(document).ready(function() {
-  // $("body").css({
-  //   "background"            : "no-repeat",
-  //   "background-image"      : "url(images/bg_home.jpg)",
-  //   "background-position"   : "center center",
-  //   "background-attachment" : "fixed",
-  //   "background-size"       : "cover"
-  // });
 
+  // RENDER SEARCH + RETURNED USERS
   User.fetch().then(function(users){
     var renSearch = new UserView().renderSearch();
     // return collection based on search params

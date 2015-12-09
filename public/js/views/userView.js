@@ -6,7 +6,11 @@ var UserView = function(user) {
   $(this.$userCard).on("click", function() {
     console.log(this.id);
     // CLEAR EVERYTHING & RENDER USER#SHOW
-    console.log("CLEAR EVERYTHING & RENDER USER#SHOW");
+    $('.row').empty();
+    var profileView = function() {
+      var renderProfile = new ProfileView().renderProfile(user);
+    };
+    profileView();
   });
 
   $('#filterLocation').change(function() {

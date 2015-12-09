@@ -2,7 +2,7 @@ var User = function(info) {
   console.log(info);
   this.name = info.name;
   this.photo = info.photo;
-  this.email = info.local.email;
+  // this.email = info.local.email;
   this.bio = info.bio;
   this.interests = info.interests;
   this.id = info._id;

@@ -1,4 +1,5 @@
 var FacebookStrategy  = require("passport-facebook").Strategy;
+var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
 var env               = require("../env");
@@ -76,7 +77,7 @@ module.exports = function(passport) {
     clientSecret: env.facebook.clientSecret,
     callbackURL: env.facebook.callbackURL,
     profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
-  }, function(token, secret, profile, done){
+  }, function(token, secret, profile, done) {
     process.nextTick(function(){
       console.log(profile);
       User.findOne({'facebook.id': profile.id}, function(err, user) {
@@ -105,4 +106,42 @@ module.exports = function(passport) {
       });
     });
   }));
+
+  // Google login
+  passport.use('google', new GoogleStrategy({
+    // Here we reference the values in env.js.
+    clientID: env.google.clientID,
+    clientSecret: env.google.clientSecret,
+    callbackURL: env.google.callbackURL,
+    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
+  }, function(token, secret, profile, done){
+    process.nextTick(function(){
+      console.log(profile);
+      User.findOne({'google.id': profile.id}, function(err, user) {
+        if(err) return done(err);
+
+        // If the user already exists, just return that user.
+        if(user){
+          return done(null, user);
+        } else {
+          // Otherwise, create a brand new user using information passed from Google.
+          var newUser = new User();
+
+          // Here we're saving information passed to us from Google.
+          newUser.google.id = profile.id;
+          newUser.google.token = token;
+          newUser.name = profile.displayName;
+          newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+          newUser.google.provider = profile.provider;
+          newUser.bio = profile.bio;
+
+          newUser.save(function(err){
+            if(err) throw err;
+            return done(null, newUser);
+          });
+        }
+      });
+    });
+  }));
+
 };

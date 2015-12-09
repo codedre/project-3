@@ -11,6 +11,11 @@ var User = mongoose.Schema({
     token: String,
     provider: String
   },
+  google : {
+    id: String,
+    token: String,
+    provider: String
+  },
   name         : String,
   photo        : String,
   bio          : String,

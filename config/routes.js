@@ -33,11 +33,25 @@ router.route("/logout")
 router.route("/secret")
   .get(authenticatedUser, usersController.secret);
 
+// Facebook login
 router.route('/auth/facebook')
   .get(passport.authenticate('facebook'));
 
 router.route('/auth/facebook/callback')
   .get(passport.authenticate('facebook', {
+    successRedirect: '/',
+    failureRedirect: '/login'
+  }));
+
+// Google Login
+router.route('/auth/google')
+  .get(passport.authenticate('google', { scope:
+    [ 'https://www.googleapis.com/auth/plus.login',
+    'https://www.googleapis.com/auth/plus.profile.emails.read' ]
+  }));
+
+router.route('/auth/google/callback')
+  .get(passport.authenticate('google', {
     successRedirect: '/',
     failureRedirect: '/login'
   }));

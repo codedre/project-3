@@ -15,7 +15,7 @@ ProfileView.prototype = {
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
     }
-    $bar.append("<div><a href='/'><img src='/images/arrow.png' class='arrow'></a><span><a href='/' class='breadcrumb-inactive'>Home</a></span>" + "<span class='breadcrumb-inactive'> / </span>" + "<span><a href='' id='breadcrumb-active'>Profile</a></span></div>");
+    $bar.append("<div><a href='/'><img src='/images/arrow.png' class='arrow'></a><span><a href='/' class='breadcrumb-inactive'>Home</a></span>" + "<span class='breadcrumb-inactive'> / </span>" + "<span id='breadcrumb-active'>Profile</span></div>");
     $left.append(unordered);
     $right.append("<h1>" + user.name + "</h1>");
     $right.append("<h4><img src='/images/pin.png' class='pin'>" + " " + user.location + "</h4>");

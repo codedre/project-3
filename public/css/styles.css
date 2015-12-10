@@ -21,6 +21,7 @@ body {
 
 .navbar-brand {
   font-size: 1.7em;
+  font-family: 'museo', sans-serif;
 }
 
 /*.navbar-brand img {

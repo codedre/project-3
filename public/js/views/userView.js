@@ -49,53 +49,6 @@ UserView.prototype = {
     self.$userCard.append(block);
     $(".user-container").append(self.$userCard);
   },
-  // renderSearch: function() {
-  //   var self = this;
-  //   self.$searchContainer.html(self.searchTemplate());
-  //
-  //   $(".row").append(self.$searchContainer);
-  // },
-  filterInterests: function() {
-    // have search as static form with dropdowns on page, on submit
-    // render apprpriate users
-  },
-  filterLocations: function() {
-    // have search as static form with dropdowns on page, on submit
-    // render apprpriate users
-  },
-  userTemplate: function(user) {
-    // var html = $('<div class="card"></div>');
-    // html.append(block);
-    // return(html);
-  },
-  // searchTemplate: function() {
-  //   var html = $('<div class="filter"></div>');
-  //   html.append('<p>Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> Travelers</p>');
-  //   html.append('<p>Interested in <a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
-  //   var filterGroup = $('<div id="filterGroup"></div>');
-  //   var sel = $('<select class="btn btn-warning" id="filterLocation"></select>');
-  //   sel.append('<option name="all">All</option>');
-  //   sel.append('<option name="northWest">North West</option>');
-  //   sel.append('<option name="west">West</option>');
-  //   sel.append('<option name="southWest">South West</option>');
-  //   sel.append('<option name="mid-west">Mid-West</option>');
-  //   sel.append('<option name="southEast">South East</option>');
-  //   sel.append('<option name="mid-atlantic">Mid-Atlantic</option>');
-  //   sel.append('<option name="northEast">North East</option>');
-  //   filterGroup.append(sel);
-  //   html.append(filterGroup);
-  //   return(html);
-  // },
-  locationFilterTemplate: function() {
-    // var filterGroup = $('<div id="filterGroup"></div>');
-    // var select = ('<select class="filter option-set" data-filter-group="location"></select>');
-    // select.append('<option data-filter-value=".red">Red</option>');
-    // select.append('<option data-filter-value=".green">Green</option>');
-    // select.append('<option data-filter-value=".blue">Blue</option>');
-    // filterGroup.append(select);
-    // return(filterGroup);
-  },
-  interestFilterTemplate: function() {},
   clearUsers: function() {
     $(".user-container").html("");
   }

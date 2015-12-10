@@ -93,10 +93,13 @@ function patchUserEdit(req,res) {
     interests: req.body.interests,
     photo: req.body.photo,
     bio: req.body.bio,
-    email: req.body.email,
-    password: req.body.password
-  }).then(function(results) {
-    res.redirect("/user/" + req.params.id);
+    local: {
+      email: req.body.local.email,
+      password: req.body.local.password
+    }
+  }, {new: true}).then(function(user) {
+    console.log(user);
+    res.json(user);
   });
 }
 

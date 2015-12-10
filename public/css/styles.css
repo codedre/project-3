@@ -232,7 +232,7 @@ Profile
   letter-spacing: .125px;
 }
 
-#right-container div {
+#right-container div.rule {
   margin-top: 20px;
   margin-bottom: 20px;
   border-top: 1px solid #808285;

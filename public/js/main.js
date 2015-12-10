@@ -19,7 +19,7 @@ $(document).ready(function() {
       $('main').append(row);
       // render search
       var userSearch = function() {
-        var renSearch = new UserView().renderSearch();
+        var renSearch = new FilterView().renderSearch();
       };
       userSearch();
       // render users

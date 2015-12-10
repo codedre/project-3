@@ -114,6 +114,23 @@ Card
 Profile
 ==================*/
 
+#breadcrumb-container {
+  margin-bottom: 42px;
+}
+
+.breadcrumb-inactive {
+  color: #989898;
+}
+
+#breadcrumb-active {
+  color: black;
+}
+
+#breadcrumb-container div span a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .profile-container {
   margin: 0 auto;
   margin-top: 80px;

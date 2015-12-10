@@ -41,40 +41,15 @@ function getLogout(request, response) {
   response.redirect('/');
 }
 
-// Restricted page
-function secret(request, response){
-  response.render('secret.hbs');
-}
-
 function getUserIndex(req,res){
   User.find({}).then(function(results) {
-    res.format({
-      html: function(){
-        res.render("user/index", {
-          users: results
-        });
-      },
-      json: function(){
-        res.json(results);
-      }
-    });
-
+    res.json(results);
   });
 }
 
 function getUserShow(req, res){
   User.findById(req.params.id).then(function(results) {
-    res.format({
-      html: function() {
-        res.render("user/show", {
-          user: results
-        });
-      },
-      json: function() {
-        res.json(results);
-      }
-    });
-
+    res.json(results);
   });
 }
 
@@ -117,7 +92,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret,
   getUserIndex : getUserIndex,
   getUserShow : getUserShow,
   getUserEdit : getUserEdit,

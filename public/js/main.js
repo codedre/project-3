@@ -1,9 +1,9 @@
 $(document).ready(function() {
+  currentUser = '';
   $.getJSON('/auth').then(function(json) {
       if(json.isAuthenticated === "true"){
-        var name = json.user.name;
-        $(".logout-link").html("Logout " + name );
-
+        currentUser = json.user;
+        $(".logout-btn").html("Logout " + currentUser.name );
         loadUserIndexView();
       } else {
         var background = new WelcomeView().renderBackground();

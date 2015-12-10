@@ -1,5 +1,7 @@
-var WelcomeView = function(user) {
-
+var WelcomeView = function() {
+  this.$onboard = $('<div class="onboard"></div>');
+  this.$login = $('<div class="onboard-btn onboard-google"><a href="/auth/google">Enter with Google</a></div>');
+  this.$signup = $('<div class="onboard-btn onboard-facebook"><a href="/auth/facebook">Enter with Facebook</a></div>');
 };
 
 WelcomeView.prototype = {
@@ -13,6 +15,10 @@ WelcomeView.prototype = {
       "background-size"       : "cover"
     });
   },
-  // renderSignup: funciton() {},
-  // renderConfirmLocation: function() {}
+  renderOnboard: function() {
+    var self = this;
+    self.$onboard.append(self.$login);
+    self.$onboard.append(self.$signup);
+    $("body").append(self.$onboard);
+  },
 };

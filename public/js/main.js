@@ -4,6 +4,7 @@ $(document).ready(function() {
         loadUserIndexView();
       } else {
         var background = new WelcomeView().renderBackground();
+        var onboard = new WelcomeView().renderOnboard();
       }
     });
 

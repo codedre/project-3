@@ -27,7 +27,7 @@ UserView.prototype = {
     self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
     self.$userCard.attr('id', user.id);
     block.append('<h2 class="card-title">' + user.name + '</h2>');
-    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
+    block.append('<p class="card-text"><img src="/images/pin.png" class="pin">' + ' ' + user.location + '</p>');
     var unordered = $('<ul></ul>');
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
@@ -57,9 +57,9 @@ UserView.prototype = {
   },
   searchTemplate: function() {
     var html = $('<div class="filter"></div>');
-    html.append('<p>Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> Travelers</p>');
-    html.append('<p>Interested in <a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
-    var filterGroup = $('<div id="filterGroup"></div>');
+    html.append('<p class="search-bar">Showing <a class="btn btn-warning" href="#">Mid-Atlantic</a> travelers interested in</p>');
+    html.append('<p class="search-bar"><a class="btn btn-warning" href="#">Foodie</a> <a class="btn btn-warning" href="#">Wildlife</a> <a class="btn btn-default" href="#">+ Add Interest</a></p>');
+    var filterGroup = $('<div class="search-bar" id="filterGroup"></div>');
     var sel = $('<select class="btn btn-warning" id="filterLocation"></select>');
     sel.append('<option name="northWest">North West</option>');
     sel.append('<option name="west">West</option>');

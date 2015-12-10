@@ -36,7 +36,8 @@
           <ul class="nav navbar-nav navbar-right">
             <!-- <li class="active"><a href="/user/index">Home</a></li> -->
             {{#if currentUser}}
-              <li><a href="/user/{{currentUser._id}}">My Profile</a></li>
+              <li><a class="profile-btn">My Profile</a></li>
+              <!-- Using profile-btn class for now. Previously used href: href="/user/{{currentUser._id}}" -->
               <li><a href="/logout">Logout {{currentUser.name}}</a></li>
             {{else}}
               <li><a href="/login">Login</a></li>

@@ -12,8 +12,9 @@ router.route('/')
   .get(staticsController.home);
 
 router.route('/auth').get(function(req,res){
+  var currentUser = req.user;
   if (req.user){
-    res.json({isAuthenticated : "true"});
+    res.json({isAuthenticated : "true", user: currentUser});
   }else {
     res.json({isAuthenticated : "false"});
   }

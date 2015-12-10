@@ -1,6 +1,9 @@
 $(document).ready(function() {
   $.getJSON('/auth').then(function(json) {
       if(json.isAuthenticated === "true"){
+        var name = json.user.name;
+        $(".logout-link").html("Logout " + name );
+
         loadUserIndexView();
       } else {
         $("body").css({

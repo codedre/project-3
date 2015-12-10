@@ -21,6 +21,7 @@ body {
 
 .navbar-brand {
   font-size: 1.7em;
+  font-family: 'museo', sans-serif;
 }
 
 /*.navbar-brand img {
@@ -98,21 +99,24 @@ Cards
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .card {
   display: inline-block;
   text-align: center;
-  background: #FAFAFA;
+  background-color: #fafafa;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
   border-radius: 3px;
   width: 247px;
   height: 350px;
   margin: 10px;
+  transition: all .1s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.2125);
+  transform: scale(1.035);
 }
 
 .card ul {

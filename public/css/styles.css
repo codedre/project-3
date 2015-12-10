@@ -136,7 +136,7 @@ Profile
   letter-spacing: .12 5px;
 }
 
-#right-container div {
+#right-container div.rule {
   margin-top: 20px;
   margin-bottom: 30px;
   border-top: 1px solid #808285;

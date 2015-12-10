@@ -9,7 +9,7 @@ var UserView = function(user) {
   function handleClickEvent(){
     $('.row').empty();
     var profileView = function() {
-      var renderProfile = new ProfileView().renderProfile(user);
+      var renderProfile = new ProfileView(user).renderProfile(user);
     };
     profileView();
   }

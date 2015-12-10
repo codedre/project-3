@@ -1,6 +1,6 @@
 require("./schema");
 var mongoose = require("mongoose");
-mongoose.connection(process.env.MONGOLAB_URI || 'mongodb://localhost/beacon');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beacon');
 var db = mongoose.connection;
 var userData = require("./user_data");
 

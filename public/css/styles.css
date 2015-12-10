@@ -66,6 +66,16 @@ Bootstrap Overrides
   color: white;
 }
 
+.btn.btn-success {
+  background-color: green;
+  color: white;
+  float: left;
+}
+.btn.btn-danger {
+  background-color: red;
+  float: right;
+  color: white;
+}
 
 /*==================
 Card filter

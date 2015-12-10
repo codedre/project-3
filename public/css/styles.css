@@ -108,7 +108,6 @@ Cards
   border-radius: 3px;
   width: 247px;
   height: 350px;
-  /* height of 350px recommended*/
   margin: 10px;
 }
 
@@ -310,7 +309,7 @@ Media Queries - User#Show
   #left-container {
     display: block;
     width: 90%;
-    margin-right: 0%;
+    margin: 0 auto;
   }
   #profile-photo {
     width: 75%;
@@ -322,6 +321,7 @@ Media Queries - User#Show
   }
   #right-container {
     display: block;
+    margin: 0 auto;
     width: 90%;
     text-align: center;
   }
@@ -339,6 +339,6 @@ Media Queries - User#Show
     text-align: center;
   }
   #right-container p {
-    /*width: 70%;*/
+    margin: 0 auto;
   }
 }

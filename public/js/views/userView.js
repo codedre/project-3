@@ -42,7 +42,7 @@ UserView.prototype = {
     block.append('<h2 class="card-title">' + user.name + '</h2>');
     block.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ user.location +'</p></div>');
     var unordered = $('<ul></ul>');
-    for (var i=0; i < user.interests.length; i++) {
+    for (var i = 0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
     }
     block.append(unordered);

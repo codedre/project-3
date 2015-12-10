@@ -3,13 +3,8 @@ $(document).ready(function() {
       if(json.isAuthenticated === "true"){
         loadUserIndexView();
       } else {
-        $("body").css({
-          "background"            : "no-repeat",
-          "background-image"      : "url(images/bg_home.jpg)",
-          "background-position"   : "center center",
-          "background-attachment" : "fixed",
-          "background-size"       : "cover"
-        });
+        var background = new WelcomeView().renderBackground();
+        var onboard = new WelcomeView().renderOnboard();
       }
     });
 

@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     function loadUserIndexView(){
       // add row
-      var row = $("<div class='row'></div>");
+      var row = $("<div class='row' id='row-style'></div>");
       $('main').append(row);
       // render search
       var userSearch = function() {

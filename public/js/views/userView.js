@@ -16,17 +16,16 @@ var UserView = function(user) {
 
   $('#filterLocation').on("change", function() {
     var val = $('#filterLocation option:selected').val();
-    var $cards = $(".card-text");
-    console.log("Filter Changed!");
+    var $cards = $(".location-text");
 
     $cards.each(function(index, el){
       $el = $(el);
       if (val === 'All') {
-        $el.parents(':eq(1)').show();
+        $el.parents(':eq(2)').show();
       } else if ($el.text() != val) {
-        $el.parents(':eq(1)').hide();
+        $el.parents(':eq(2)').hide();
       } else if ($el.text() == val) {
-        $el.parents(':eq(1)').show();
+        $el.parents(':eq(2)').show();
       }
     });
   });
@@ -41,7 +40,7 @@ UserView.prototype = {
     self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
     self.$userCard.attr('id', user.id);
     block.append('<h2 class="card-title">' + user.name + '</h2>');
-    block.append('<p class="card-text"><img src="/images/pin.png" class="pin">' + ' ' + user.location + '</p>');
+    block.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ user.location +'</p></div>');
     var unordered = $('<ul></ul>');
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');

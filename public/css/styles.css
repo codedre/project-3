@@ -1,3 +1,13 @@
+/*==================
+Core Styles
+==================*/
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
 body {
   padding-top: 55px;
   /*background-color: #F0EFEB;*/
@@ -11,7 +21,9 @@ body {
 
 .navbar-brand {
   font-size: 1.7em;
+  font-family: 'museo', sans-serif;
 }
+
 /*.navbar-brand img {
   height: auto;
   width: 25%;
@@ -28,7 +40,12 @@ body {
   margin-right: 5px;
 }
 
-
+#row-style {
+  margin: 0px;
+  max-width: 1150px;
+  width: 100%;
+  /*background-color: lightgray;*/
+}
 
 /*==================
 Bootstrap Overrides
@@ -49,8 +66,9 @@ Bootstrap Overrides
   color: white;
 }
 
+
 /*==================
-Card
+Card filter
 ==================*/
 
 .filter {
@@ -72,23 +90,33 @@ Card
 }
 
 
+
 /*==================
-Card
+Cards
 ==================*/
+
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 100px;
+}
 
 .card {
   display: inline-block;
   text-align: center;
-  background: #FAFAFA;
+  background-color: #fafafa;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
   border-radius: 3px;
-  width: 280px;
-  height: 360px;
+  width: 247px;
+  height: 350px;
   margin: 10px;
+  transition: all .1s ease-in-out;
 }
 
 .card:hover {
-  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.2125);
+  transform: scale(1.035);
 }
 
 .card ul {
@@ -142,6 +170,17 @@ Card
 Profile
 ==================*/
 
+.arrow {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  border-radius: 360px;
+}
+
+.arrow:hover {
+  background-color: #fcd945;
+}
+
 #breadcrumb-container {
   margin-bottom: 42px;
 }
@@ -161,10 +200,8 @@ Profile
 
 .profile-container {
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 60px;
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
   vertical-align: top;
 }
 
@@ -240,7 +277,7 @@ Profile
 }
 
 #right-container p {
-  width: 85%;
+  width: 90%;
   font-family: sans-serif;
   font-size: 12px;
   line-height: 18px;
@@ -276,7 +313,7 @@ Media Queries - User#Show
   #left-container {
     display: block;
     width: 90%;
-    margin-right: 0%;
+    margin: 0 auto;
   }
   #profile-photo {
     width: 75%;
@@ -288,6 +325,7 @@ Media Queries - User#Show
   }
   #right-container {
     display: block;
+    margin: 0 auto;
     width: 90%;
     text-align: center;
   }
@@ -305,6 +343,57 @@ Media Queries - User#Show
     text-align: center;
   }
   #right-container p {
-    /*width: 70%;*/
+    margin: 0 auto;
   }
+}
+
+/*==================
+Welcome
+==================*/
+
+.onboard {
+  /*box-sizing: border-box;*/
+  position: relative;
+  display: block;
+  top: 50vh;
+  margin: 0 auto;
+  border: 1px solid rgba(252, 217, 69, 0.4);
+  background-color: rgba(252, 217, 69, 0.4);
+  width: 220px;
+  height: 162px;
+  border-radius: 3px;
+}
+
+.onboard.large {
+  height: 222px;
+  transition: all 500ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+}
+
+.onboard-btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 180px;
+  height: 36px;
+  background-color: white;
+  line-height: 36px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.onboard-google {
+  background-color: #DF4A32;
+  color: white;
+}
+.onboard-facebook {
+  background-color: #49639F;
+  color: white;
+}
+
+.onboard-btn a {
+  text-align: center;
+  display: block;
+  margin: 0;
+  color: inherit;
+  text-decoration: none;
 }

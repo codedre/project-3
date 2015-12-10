@@ -6,19 +6,14 @@ $(document).ready(function() {
 
         loadUserIndexView();
       } else {
-        $("body").css({
-          "background"            : "no-repeat",
-          "background-image"      : "url(images/bg_home.jpg)",
-          "background-position"   : "center center",
-          "background-attachment" : "fixed",
-          "background-size"       : "cover"
-        });
+        var background = new WelcomeView().renderBackground();
+        var onboard = new WelcomeView().renderOnboard();
       }
     });
 
     function loadUserIndexView(){
       // add row
-      var row = $("<div class='row'></div>");
+      var row = $("<div class='row' id='row-style'></div>");
       $('main').append(row);
       // render search
       var userSearch = function() {

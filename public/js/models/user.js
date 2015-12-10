@@ -45,12 +45,6 @@ User.prototype = {
         } else {
           this.email = '';
         }
-
-        if (null !== newData[attrname].password) {
-          this.password = newData[attrname].password;
-        } else {
-          this.password = '';
-        }
       }
       null !== newData[attrname] ? this[attrname] = newData[attrname] : this[attrname] = '';
     }

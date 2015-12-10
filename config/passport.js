@@ -113,7 +113,7 @@ module.exports = function(passport) {
     clientID: env.googleID,
     clientSecret: env.googleSecret,
     callbackURL: env.googleCallbackURL,
-    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
+    profileFields: ['id', 'name','image_size:800px', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){
       console.log(profile);

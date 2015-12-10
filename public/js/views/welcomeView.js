@@ -1,10 +1,8 @@
-var LoginView = function(user) {
-  this.user = user;
-  // need to fix this
-  // this.$el = $('<div class="users"></div>');
+var WelcomeView = function(user) {
+
 };
 
-LoginView.prototype = {
+WelcomeView.prototype = {
   renderBackground: function() {
     // need to make this work, placed it here to clean up main.js
     $("body").css({

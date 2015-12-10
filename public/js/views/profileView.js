@@ -1,8 +1,6 @@
 var ProfileView = function(user) {
   this.user = user;
   this.$profileContainer = $('<div class="profile-container"></div>');
-  // this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
-  // this.$searchContainer = $('<div class="search-container"></div>');
 };
 
 ProfileView.prototype = {
@@ -15,7 +13,8 @@ ProfileView.prototype = {
     var unordered = $('<ul id="interests"></ul>');
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
-    };
+    }
+
     $left.append(unordered);
     $right.append("<h1>" + user.name + "</h1>");
     $right.append("<h4>" + user.location + "</h4>");

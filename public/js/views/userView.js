@@ -3,15 +3,16 @@ var UserView = function(user) {
   this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
   this.$searchContainer = $('<div class="search-container"></div>');
 
-  $(this.$userCard).on("click", function() {
-    console.log(this.id);
-    // CLEAR EVERYTHING & RENDER USER#SHOW
+  $(this.$userCard).on("click", handleClickEvent);
+  $(".profile-btn").on("click", handleClickEvent);
+
+  function handleClickEvent(){
     $('.row').empty();
     var profileView = function() {
       var renderProfile = new ProfileView().renderProfile(user);
     };
     profileView();
-  });
+  }
 
   $('#filterLocation').change(function() {
     var val = $('#filterLocation option:selected').val();

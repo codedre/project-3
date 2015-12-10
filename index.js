@@ -12,11 +12,7 @@ var session        = require("express-session");
 var methodOverride = require('method-override');
 
 // connecting to db
-mongoose.connect("mongodb://localhost/beacon");
-// mongoose.connect(process.env.MONGOLAB_URI, function (error) {
-//     if (error) console.error(error);
-//     else console.log('mongo connected');
-// });
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beacon');
 
 // setting up middlewear
 app.use(morgan("dev"));

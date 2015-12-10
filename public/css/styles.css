@@ -1,3 +1,13 @@
+/*==================
+Core Styles
+==================*/
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
 body {
   padding-top: 55px;
   /*background-color: #F0EFEB;*/
@@ -11,8 +21,6 @@ body {
 
 .navbar-brand {
   font-size: 1.7em;
-  font-family: 'museo', sans-serif;
-  color: white;
 }
 
 /*.navbar-brand img {
@@ -31,6 +39,12 @@ body {
   margin-right: 5px;
 }
 
+#row-style {
+  margin: 0px;
+  max-width: 1150px;
+  width: 100%;
+  /*background-color: lightgray;*/
+}
 
 /*==================
 Bootstrap Overrides
@@ -51,8 +65,9 @@ Bootstrap Overrides
   color: white;
 }
 
+
 /*==================
-Card
+Card filter
 ==================*/
 
 .filter {
@@ -74,9 +89,16 @@ Card
 }
 
 
+
 /*==================
-Card
+Cards
 ==================*/
+
+.user-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 .card {
   display: inline-block;
@@ -84,8 +106,8 @@ Card
   background: #FAFAFA;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
   border-radius: 3px;
-  width: 280px;
-  height: 360px;
+  width: 247px;
+  height: 350px;
   margin: 10px;
 }
 
@@ -144,6 +166,17 @@ Card
 Profile
 ==================*/
 
+.arrow {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  border-radius: 360px;
+}
+
+.arrow:hover {
+  background-color: #fcd945;
+}
+
 #breadcrumb-container {
   margin-bottom: 42px;
 }
@@ -163,10 +196,8 @@ Profile
 
 .profile-container {
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 60px;
   width: 100%;
-  padding-left: 5%;
-  padding-right: 5%;
   vertical-align: top;
 }
 
@@ -242,7 +273,7 @@ Profile
 }
 
 #right-container p {
-  width: 85%;
+  width: 90%;
   font-family: sans-serif;
   font-size: 12px;
   line-height: 18px;
@@ -278,7 +309,7 @@ Media Queries - User#Show
   #left-container {
     display: block;
     width: 90%;
-    margin-right: 0%;
+    margin: 0 auto;
   }
   #profile-photo {
     width: 75%;
@@ -290,6 +321,7 @@ Media Queries - User#Show
   }
   #right-container {
     display: block;
+    margin: 0 auto;
     width: 90%;
     text-align: center;
   }
@@ -307,6 +339,6 @@ Media Queries - User#Show
     text-align: center;
   }
   #right-container p {
-    /*width: 70%;*/
+    margin: 0 auto;
   }
 }

@@ -1,6 +1,7 @@
 var ProfileView = function(user) {
   this.user = user;
   this.$profileContainer = $('<div class="profile-container"></div>');
+
 };
 
 ProfileView.prototype = {
@@ -32,6 +33,11 @@ ProfileView.prototype = {
     editButton.on("click", function() {
       self.renderEditForm(self.user);
     });
+
+    // show edit controls
+    if (currentUser._id != user.id) {
+      $("#edit-profile").hide();
+    }
 
   },
   renderEditForm: function(user){

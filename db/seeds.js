@@ -1,4 +1,4 @@
-// require("./schema");
+require("./schema");
 var mongoose = require("mongoose");
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beacon');
 var db = mongoose.connection;

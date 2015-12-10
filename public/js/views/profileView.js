@@ -17,7 +17,7 @@ ProfileView.prototype = {
 
     $left.append(unordered);
     $right.append("<h1>" + user.name + "</h1>");
-    $right.append("<h4>" + user.location + "</h4>");
+    $right.append("<h4><img src='/images/pin.png' class='pin'>" + " " + user.location + "</h4>");
     $right.append("<div class='rule'></div>");
     $right.append("<p>" + user.bio + "</p>");
     $right.append("<button id='edit-profile'>Edit Profile</button>");

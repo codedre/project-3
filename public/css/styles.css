@@ -22,6 +22,33 @@ body {
   float: right;
 }
 
+.search-bar {
+  margin-top: 30px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+
+/*==================
+Bootstrap Overrides
+==================*/
+
+.btn, .btn-warning {
+  background-color: #fcd945;
+  border: 0px;
+  color: black;
+}
+
+.btn:hover, .btn-warning:hover {
+  background-color: black;
+  color: white;
+}
+
+.nav li:hover {
+  color: white;
+}
+
 
 /*==================
 Card
@@ -38,20 +65,36 @@ Card
   margin: 10px;
 }
 
+.card:hover {
+  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
+}
+
 .card ul {
   padding: 0;
 }
 
 .card-title {
+  font-family: 'museo', sans-serif;
   font-size: 20px;
+  letter-spacing: .15px;
+  margin-bottom: 5px;
 }
 
 .card-text {
-  font-size: 14px;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: .125px;
 }
 
 .card li.btn {
-  margin: 2px;
+  margin-right: 4px;
+  margin-bottom: 5px;
+  background-color: #fcd945;
+  border: 0px;
+  font-size: 12px;
+  color: black;
 }
 
 .img-circle {
@@ -60,14 +103,37 @@ Card
   height: auto;
 }
 
+.pin {
+  height: 10px;
+  width: 10px;
+  margin-bottom: 3px;
+  margin-right: 1px;
+}
 
 /*==================
 Profile
 ==================*/
 
+#breadcrumb-container {
+  margin-bottom: 42px;
+}
+
+.breadcrumb-inactive {
+  color: #989898;
+}
+
+#breadcrumb-active {
+  color: black;
+}
+
+#breadcrumb-container div span a:hover {
+  color: black;
+  text-decoration: none;
+}
+
 .profile-container {
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 80px;
   width: 100%;
   padding-left: 5%;
   padding-right: 5%;
@@ -86,6 +152,7 @@ Profile
 
 #left-container h3 {
   font-family: 'museo', sans-serif;
+  font-size: 20px;
 }
 
 #profile-photo {
@@ -130,15 +197,16 @@ Profile
 }
 
 #right-container h4 {
+  margin-top: -2px;
   font-family: sans-serif;
   font-size: 14px;
   font-weight: bold;
-  letter-spacing: .12 5px;
+  letter-spacing: .125px;
 }
 
 #right-container div {
   margin-top: 20px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   border-top: 1px solid #808285;
   width: 100%;
 }
@@ -164,4 +232,51 @@ Profile
 #edit-profile:hover {
   background-color: black;
   color: white;
+}
+
+
+/*==================
+Media Queries - User#Show
+==================*/
+
+@media (max-width: 700px) {
+  .profile-container {
+    margin-top: 50px;
+    text-align: center;
+    padding: 0;
+  }
+  #left-container {
+    display: block;
+    width: 90%;
+    margin-right: 0%;
+  }
+  #profile-photo {
+    width: 75%;
+  }
+  #interests {
+    margin: 0 auto;
+    width: 55%;
+    text-align: center;
+  }
+  #right-container {
+    display: block;
+    width: 90%;
+    text-align: center;
+  }
+  #right-container h1 {
+    margin-top: 23px;
+    text-align: center;
+    font-size: 32px;
+  }
+  #right-container div {
+    margin: 0 auto;
+    width: 95%;
+    margin-bottom: 30px;
+  }
+  #right-container h4 {
+    text-align: center;
+  }
+  #right-container p {
+    /*width: 70%;*/
+  }
 }

@@ -32,6 +32,6 @@ User.prototype = {
     // var data = User.fetch();
     console.log("queryLocation");
     console.log(data);
-    console.log(jsonQuery('loaction=Mid-Atlantic', {data: data}));
+    console.log(jsonQuery('location=Mid-Atlantic', {data: data}));
   }
 };

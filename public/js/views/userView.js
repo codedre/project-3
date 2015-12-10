@@ -41,7 +41,7 @@ UserView.prototype = {
     self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
     self.$userCard.attr('id', user.id);
     block.append('<h2 class="card-title">' + user.name + '</h2>');
-    block.append('<p class="card-text">'+ user.location +'<span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></p>');
+    block.append('<p class="card-text"><img src="/images/pin.png" class="pin">' + ' ' + user.location + '</p>');
     var unordered = $('<ul></ul>');
     for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');

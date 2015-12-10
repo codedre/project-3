@@ -13,6 +13,7 @@ var methodOverride = require('method-override');
 
 // connecting to db
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/beacon');
+//another
 
 // setting up middlewear
 app.use(morgan("dev"));

@@ -28,6 +28,8 @@ body {
   margin-right: 5px;
 }
 
+
+
 /*==================
 Bootstrap Overrides
 ==================*/
@@ -61,6 +63,10 @@ Card
   width: 280px;
   height: 360px;
   margin: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 3px 7px 0px rgba(0,0,0,0.3);
 }
 
 .card ul {

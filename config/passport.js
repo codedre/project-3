@@ -72,9 +72,10 @@ module.exports = function(passport) {
 
   // Facebook login
   passport.use('facebook', new FacebookStrategy({
-    clientID: process.facebookID,
-    clientSecret: process.facebookSecret,
-    callbackURL: process.facebookCallbackURL,
+    // Here we reference the values in process.env.js.
+    clientID: process.env.facebookID,
+    clientSecret: process.env.facebookSecret,
+    callbackURL: process.env.facebookCallbackURL,
     profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done) {
     process.nextTick(function(){
@@ -108,9 +109,9 @@ module.exports = function(passport) {
   // Google login
   passport.use('google', new GoogleStrategy({
     // Here we reference the values in env.js.
-    clientID: process.googleID,
-    clientSecret: process.googleSecret,
-    callbackURL: process.googleCallbackURL,
+    clientID: process.env.googleID,
+    clientSecret: process.env.googleSecret,
+    callbackURL: process.env.googleCallbackURL,
     profileFields: ['id', 'name','image_size:800px', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){

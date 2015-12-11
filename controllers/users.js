@@ -39,6 +39,7 @@ function postLogin(request, response) {
 function getLogout(request, response) {
   request.logout();
   response.redirect('/');
+  console.log("getLogout got called");
 }
 
 function getUserIndex(req,res){
@@ -81,7 +82,7 @@ function patchUserEdit(req,res) {
 function deleteUserProfile(req,res) {
   User.findByIdAndRemove( req.params.id , function(err, user) {
     if(err){res.send(err);} else {
-      res.redirect("/user/index");
+      res.json({success: "true"});
     }
   });
 }

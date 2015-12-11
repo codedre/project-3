@@ -51,8 +51,14 @@ ProfileView.prototype = {
     self.$profileContainer.find(".updateProfile").on("click", function() {
       self.updateProfile();
     });
-    self.$profileContainer.find(".deleteProfile").on("click", function() {
-      self.deleteProfile();
+    self.$profileContainer.find(".final-delete").on("click", function() {
+
+      self.user.delete().then(function() {
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('main').empty();
+        window.location.href = "/logout";
+      });
     });
 
   },
@@ -88,15 +94,13 @@ ProfileView.prototype = {
       <div class="modal-dialog" role="document"> \
       <div class="modal-content"> \
       <div class="modal-header"> \
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> \
+      <button id="close-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> \
       <h4 class="modal-title danger" id="myModalLabel">CONFIRM ACCOUT DELETION</h4></div> \
       <div class="modal-body">We are so sad to see you go. But if you must know that your account will be deleted permanently. Are you sure you want to complete this action?</div> \
       <div class="modal-footer"> \
-      <form action="/user/{{user._id}}?_method=delete" method="post"><input type="submit" class="btn btn-danger delete" value="Delete Profile"></form> \
-      </div></div></div></div>');
-
-    //  <input class="btn btn-success" type="submit" value="Update Profile"> \
-    //  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#myModal">Delete Profile</button>'
+      <input type="submit" class="btn btn-danger delete final-delete" value="Delete Profile"> \
+      </div></div></div></div>'
+    );
     return(html);
   },
 
@@ -118,5 +122,11 @@ ProfileView.prototype = {
   },
   deleteProfile: function() {
     console.log('POOF Profile Deleted!');
+    var self = this;
+    self.user.delete().then(function() {
+      console.log(user);
+      console.log("something");
+      loadUserIndexView();
+    });
   }
 };

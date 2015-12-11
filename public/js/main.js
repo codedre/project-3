@@ -11,7 +11,7 @@ $(document).ready(function() {
       }
     });
 
-    function loadUserIndexView(){
+    loadUserIndexView = function(){
       // add row
       var row = $("<div class='row' id='row-style'></div>");
       $('main').append(row);
@@ -28,5 +28,5 @@ $(document).ready(function() {
         });
 
       });
-    }
+    };
 });

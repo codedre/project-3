@@ -1,8 +1,12 @@
-# Project-3 (working title)
+# Beacon (WDI Project-3 Group)
 
 ## Synopsis
 
-At the top of the file there should be a short introduction and/ or overview that explains **what** the project is. This description should match descriptions added for package managers (Gemspec, package.json, etc.)
+For our project we decided to tackle building a product from a General Assembly UX Design Immersive (UXDI) students final project named Beacon. Their summary of Beacon is:
+> Allows Lonely Planet users to connect with other travelers in the same region, so they can either meet up or read and share suggestions about off-the-beaten-path adventures and real-time events not found in guidebooks.
+
+
+You can view the project [here](http://res.cloudinary.com/general-assembly-profiles/image/upload/v1431701133/bjstiabt0gisj9dnxd9y.pdf).
 
 ## Code Example
 

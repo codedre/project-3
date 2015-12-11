@@ -4,7 +4,7 @@ var UserView = function(user) {
   this.$searchContainer = $('<div class="search-container"></div>');
 
   $(this.$userCard).on("click", function() {
-    handleClickEvent(user)
+    handleClickEvent(user);
   });
 
   $(".profile-btn").on("click", function() {

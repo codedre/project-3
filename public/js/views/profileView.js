@@ -36,7 +36,7 @@ ProfileView.prototype = {
     });
 
     // show edit controls
-    if (currentUser._id != user.id) {
+    if (currentUser.id != user.id) {
       $("#edit-button").hide();
     }
 

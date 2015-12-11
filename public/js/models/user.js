@@ -48,5 +48,22 @@ User.prototype = {
       }
       null !== newData[attrname] ? this[attrname] = newData[attrname] : this[attrname] = '';
     }
+  },
+  delete: function() {
+    var self = this;
+    var url = '/user/' + this.id;
+    var request = $.ajax({
+      url: url,
+      type: 'DELETE',
+    });
+    return request;
+  },
+  logout: function() {
+    var url = '/logout';
+    var request = $.ajax({
+      url: url,
+      type: 'GET'
+    });
+    return request;
   }
 };

@@ -3,10 +3,15 @@ var UserView = function(user) {
   this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
   this.$searchContainer = $('<div class="search-container"></div>');
 
-  $(this.$userCard).on("click", handleClickEvent);
-  $(".profile-btn").on("click", handleClickEvent);
+  $(this.$userCard).on("click", function() {
+    handleClickEvent(user)
+  });
 
-  function handleClickEvent(){
+  $(".profile-btn").on("click", function() {
+    handleClickEvent(currentUser);
+  });
+
+  function handleClickEvent(user){
     $('.row').empty();
     var profileView = function() {
       var renderProfile = new ProfileView(user).renderProfile(user);
@@ -42,7 +47,7 @@ UserView.prototype = {
     block.append('<h2 class="card-title">' + user.name + '</h2>');
     block.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ user.location +'</p></div>');
     var unordered = $('<ul></ul>');
-    for (var i = 0; i < user.interests.length; i++) {
+    for (var i=0; i < user.interests.length; i++) {
       unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
     }
     block.append(unordered);

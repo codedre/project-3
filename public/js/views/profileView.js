@@ -1,6 +1,7 @@
 var ProfileView = function(user) {
   this.user = user;
   this.$profileContainer = $('<div class="profile-container"></div>');
+
 };
 
 ProfileView.prototype = {
@@ -34,17 +35,31 @@ ProfileView.prototype = {
       self.renderEditForm(self.user);
     });
 
+    // show edit controls
+    if (currentUser._id != user.id) {
+      $("#edit-profile").hide();
+    }
+
   },
   renderEditForm: function(user){
 
     var self = this;
     var container = $(self.$profileContainer.find('#right-container'));
-    container.append("<button class='updateProfile btn btn-success'>Update Profile</button>");
-    container.append("<button class='deleteProfile btn btn-danger'>Delete Profile</button>");
     container.append(self.profileEditTemplate(user));
+    container.append("<button class='updateProfile btn btn-success'>Update Profile</button>");
+    container.append("<button class='deleteProfile btn btn-danger' data-toggle='modal' data-target='#myModal'>Delete Profile</button>");
     container.children().not(".updateProfile, .deleteProfile, .edit-form").slideUp("fast");
     self.$profileContainer.find(".updateProfile").on("click", function() {
       self.updateProfile();
+    });
+    self.$profileContainer.find(".final-delete").on("click", function() {
+
+      self.user.delete().then(function() {
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+        $('main').empty();
+        window.location.href = "/logout";
+      });
     });
 
   },
@@ -52,9 +67,42 @@ ProfileView.prototype = {
   profileEditTemplate: function(user){
 
     var html = $("<div class='edit-form'>");
-    html.append('<div class="form-group"><label for="name">Name</label><input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes" value="' + user.name + '"></div><div class="form-group"><label for="location">Current Location</label><select name="location" multiple class="form-control"><option>North West</option><option>West</option><option>South West</option><option>Mid-West</option><option>South East</option><option>Mid-Atlantic</option><option>North East</option></select></div><div class="form-group"><label for="photo">Profile Picture</label><input class="form-control" type="text" name="photo" id="photo" placeholder="http://example.com/myImage.jpg" value="' + user.photo + '"></div><div class="form-group"><label for="bio">Biography</label><textarea class="form-control" name="bio" id="bio" placeholder="A little bit about me..." rows="3" >' + user.bio +  '</textarea></div><div><label for="interests">Interests</label></div><div class="form-group"><div class="btn-group" data-toggle="buttons"><label class="btn btn-primary"><input type="checkbox" name="interests" value="Foodie" autocomplete="off"> Foodie </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Hiking" autocomplete="off"> Hiking </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Art" autocomplete="off"> Art </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="History" autocomplete="off"> History </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Wildlife" autocomplete="off"> Wildlife</label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Adventure" autocomplete="off"> Adventure </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Festivals" autocomplete="off"> Festivals </label><label class="btn btn-primary"><input type="checkbox" name="interests" value="Music" autocomplete="off"> Culture </label></div></div><div class="form-group"><label for="email">Email</label><input class="form-control" type="text" name="email" id="email" value="' + user.email + '"></div><input class="btn btn-success" type="submit" value="Update Profile"><button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#myModal">Delete Profile</button>');
+    /*jshint multistr: true */
+    html.append(
+      '<div class="form-group"><label for="name">Name</label> \
+      <input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes" value="' + user.name + '"> \
+      </div><div class="form-group"><label for="location">Current Location</label> \
+      <select name="location" multiple class="form-control"> \
+      <option>North West</option><option>West</option><option>South West</option><option>Mid-West</option><option>South East</option><option>Mid-Atlantic</option><option>North East</option> \
+      </select></div> \
+      <div class="form-group"><label for="photo">Profile Picture</label> \
+      <input class="form-control" type="text" name="photo" id="photo" placeholder="http://example.com/myImage.jpg" value="' + user.photo + '"></div> \
+      <div class="form-group"><label for="bio">Biography</label> \
+      <textarea class="form-control" name="bio" id="bio" placeholder="A little bit about me..." rows="3" >' + user.bio +  '</textarea></div> \
+      <div><label for="interests">Interests</label></div><div class="form-group"> \
+      <div class="btn-group" data-toggle="buttons"><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Foodie" autocomplete="off"> Foodie </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Hiking" autocomplete="off"> Hiking </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Art" autocomplete="off"> Art </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="History" autocomplete="off"> History </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Wildlife" autocomplete="off"> Wildlife</label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Adventure" autocomplete="off"> Adventure </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Festivals" autocomplete="off"> Festivals </label><label class="btn btn-primary"> \
+      <input type="checkbox" name="interests" value="Music" autocomplete="off"> Culture </label></div></div><div class="form-group"> \
+      <label for="email">Email</label><input class="form-control" type="text" name="email" id="email" value="' + user.email + '"></div> \
+      \
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> \
+      <div class="modal-dialog" role="document"> \
+      <div class="modal-content"> \
+      <div class="modal-header"> \
+      <button id="close-btn" type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> \
+      <h4 class="modal-title danger" id="myModalLabel">CONFIRM ACCOUT DELETION</h4></div> \
+      <div class="modal-body">We are so sad to see you go. But if you must know that your account will be deleted permanently. Are you sure you want to complete this action?</div> \
+      <div class="modal-footer"> \
+      <input type="submit" class="btn btn-danger delete final-delete" value="Delete Profile"> \
+      </div></div></div></div>'
+    );
     return(html);
-
   },
 
   updateProfile: function(){
@@ -72,5 +120,14 @@ ProfileView.prototype = {
       interests: $('input[name=interests]').val()
     };
     self.user.update(data).then(function() { self.renderProfile(self.user); });
+  },
+  deleteProfile: function() {
+    console.log('POOF Profile Deleted!');
+    var self = this;
+    self.user.delete().then(function() {
+      console.log(user);
+      console.log("something");
+      loadUserIndexView();
+    });
   }
 };

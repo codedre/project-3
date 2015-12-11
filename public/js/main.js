@@ -1,6 +1,9 @@
 $(document).ready(function() {
+  currentUser = '';
   $.getJSON('/auth').then(function(json) {
       if(json.isAuthenticated === "true"){
+        currentUser = json.user;
+        $(".logout-btn").html("Logout " + currentUser.name );
         loadUserIndexView();
       } else {
         var background = new WelcomeView().renderBackground();
@@ -8,7 +11,7 @@ $(document).ready(function() {
       }
     });
 
-    function loadUserIndexView(){
+    loadUserIndexView = function(){
       // add row
       var row = $("<div class='row' id='row-style'></div>");
       $('main').append(row);
@@ -25,5 +28,5 @@ $(document).ready(function() {
         });
 
       });
-    }
+    };
 });

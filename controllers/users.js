@@ -39,42 +39,18 @@ function postLogin(request, response) {
 function getLogout(request, response) {
   request.logout();
   response.redirect('/');
-}
-
-// Restricted page
-function secret(request, response){
-  response.render('secret.hbs');
+  console.log("getLogout got called");
 }
 
 function getUserIndex(req,res){
   User.find({}).then(function(results) {
-    res.format({
-      html: function(){
-        res.render("user/index", {
-          users: results
-        });
-      },
-      json: function(){
-        res.json(results);
-      }
-    });
-
+    res.json(results);
   });
 }
 
 function getUserShow(req, res){
   User.findById(req.params.id).then(function(results) {
-    res.format({
-      html: function() {
-        res.render("user/show", {
-          user: results
-        });
-      },
-      json: function() {
-        res.json(results);
-      }
-    });
-
+    res.json(results);
   });
 }
 
@@ -106,7 +82,7 @@ function patchUserEdit(req,res) {
 function deleteUserProfile(req,res) {
   User.findByIdAndRemove( req.params.id , function(err, user) {
     if(err){res.send(err);} else {
-      res.redirect("/user/index");
+      res.json({success: "true"});
     }
   });
 }
@@ -117,7 +93,6 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret,
   getUserIndex : getUserIndex,
   getUserShow : getUserShow,
   getUserEdit : getUserEdit,

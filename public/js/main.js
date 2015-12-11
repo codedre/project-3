@@ -6,8 +6,9 @@ $(document).ready(function() {
         $(".logout-btn").html("Logout " + currentUser.name );
         loadUserIndexView();
       } else {
-        var background = new WelcomeView().renderBackground();
-        var onboard = new WelcomeView().renderOnboard();
+        var welcome = new WelcomeView();
+        welcome.renderBackground();
+        welcome.renderOnboard();
       }
     });
 

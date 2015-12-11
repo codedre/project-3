@@ -22,7 +22,7 @@ ProfileView.prototype = {
     $right.append("<h4><img src='/images/pin.png' class='pin'>" + " " + user.location + "</h4>");
     $right.append("<div class='rule'></div>");
     $right.append("<p>" + user.bio + "</p>");
-    $right.append("<a href='mailto:" + user.email + "'><button class='button' id='contact-button'>Contact</button></a>");
+    $right.append("<a href='mailto:" + user.email + "'><button class='button' id='contact-button'>Contact Me</button></a>");
     $right.append("<button class='button' id='edit-button'>Edit Profile</button>");
     self.$profileContainer.append($bar);
     self.$profileContainer.append($left);

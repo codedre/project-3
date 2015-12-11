@@ -16,7 +16,7 @@
       "password"     : "String"
     },
     "name"         : "Jayden Sanchez",
-    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/male-users/men30-photo-by-John-O'Nolan.jpg",
+    "photo"        : "http://www.simon-li.com/projects/mongkok/cs3/images/gallery/small/random-user-20.jpg",
     "bio"          : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce porttitor ultrices tempor. Donec sed lectus ut nibh blandit egestas et vel neque. Sed cursus vestibulum orci, a posuere tellus varius et. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     "interests"    : ["History","Wildlife","Festivals","Culture"],
     "location"     : "North West"
@@ -27,7 +27,7 @@
       "password"     : "String"
     },
     "name"         : "Bruce Parker",
-    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/male-users/men19-photo-by-Dave-Fayram.jpg",
+    "photo"        : "http://www.simon-li.com/projects/mongkok/cs5/images/random-user-48.jpg",
     "bio"          : "Nam laoreet, sem ac tincidunt auctor, massa risus tempus nisl, ut sollicitudin dolor diam non est. Nulla facilisi. Praesent dolor tellus, tristique a dignissim sed, sodales quis nisi. Maecenas nec tempus nulla. Maecenas tincidunt semper dui eget tempor. Phasellus ut faucibus nibh. Sed urna velit, rutrum et risus nec, ultrices cursus odio. Duis nec rhoncus massa. Aenean ligula mi, lacinia non ante eget, egestas maximus neque. Duis eu justo orci. Vivamus blandit justo neque, vitae elementum est maximus eu. Mauris vestibulum enim id urna blandit, at eleifend libero tincidunt. Vestibulum pulvinar urna at aliquam ullamcorper.",
     "interests"    : ["Foodie","Art","Festivals","Culture"],
     "location"     : "South West"

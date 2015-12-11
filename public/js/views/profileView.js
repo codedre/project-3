@@ -46,7 +46,7 @@ ProfileView.prototype = {
     var container = $(self.$profileContainer.find('#right-container'));
     container.append(self.profileEditTemplate(user));
     container.append("<button class='updateProfile btn btn-success'>Update Profile</button>");
-    container.append("<button class='deleteProfile btn btn-danger'>Delete Profile</button>");
+    container.append("<button class='deleteProfile btn btn-danger' data-toggle='modal' data-target='#myModal'>Delete Profile</button>");
     container.children().not(".updateProfile, .deleteProfile, .edit-form").slideUp("fast");
     self.$profileContainer.find(".updateProfile").on("click", function() {
       self.updateProfile();
@@ -82,7 +82,18 @@ ProfileView.prototype = {
       <input type="checkbox" name="interests" value="Adventure" autocomplete="off"> Adventure </label><label class="btn btn-primary"> \
       <input type="checkbox" name="interests" value="Festivals" autocomplete="off"> Festivals </label><label class="btn btn-primary"> \
       <input type="checkbox" name="interests" value="Music" autocomplete="off"> Culture </label></div></div><div class="form-group"> \
-      <label for="email">Email</label><input class="form-control" type="text" name="email" id="email" value="' + user.email + '"></div>');
+      <label for="email">Email</label><input class="form-control" type="text" name="email" id="email" value="' + user.email + '"></div> \
+      \
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> \
+      <div class="modal-dialog" role="document"> \
+      <div class="modal-content"> \
+      <div class="modal-header"> \
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> \
+      <h4 class="modal-title danger" id="myModalLabel">CONFIRM ACCOUT DELETION</h4></div> \
+      <div class="modal-body">We are so sad to see you go. But if you must know that your account will be deleted permanently. Are you sure you want to complete this action?</div> \
+      <div class="modal-footer"> \
+      <form action="/user/{{user._id}}?_method=delete" method="post"><input type="submit" class="btn btn-danger delete" value="Delete Profile"></form> \
+      </div></div></div></div>');
 
     //  <input class="btn btn-success" type="submit" value="Update Profile"> \
     //  <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#myModal">Delete Profile</button>'

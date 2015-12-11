@@ -72,7 +72,7 @@ module.exports = function(passport) {
 
   // Facebook login
   passport.use('facebook', new FacebookStrategy({
-    // Here we reference the values in process.env.js.
+    // Here we reference the values in process.process.env.js.
     clientID: process.env.facebookID,
     clientSecret: process.env.facebookSecret,
     callbackURL: process.env.facebookCallbackURL,

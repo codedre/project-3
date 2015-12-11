@@ -56,7 +56,8 @@ ProfileView.prototype = {
       });
 
       var cardPositions = ["left","center","right"];
-      for (var i = 0; i < 3; i++) {
+      if (filteredUsers.length <= 3){
+      for (var i = 0; i < filteredUsers.length; i++) {
         var $userCard = $('<div class="card"></div>');
         // console.log(users[i]);
         var usersBlock = $('<div class="card-block"></div>');
@@ -76,6 +77,7 @@ ProfileView.prototype = {
 
       }
       $similarUsers.append($similarUsersCardContainer);
+    }
     });
     $("body").append($similarUsers);
   },

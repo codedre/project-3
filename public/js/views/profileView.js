@@ -62,10 +62,13 @@ ProfileView.prototype = {
       });
     });
     var interestsList = user.interests;
-    
+
     $(interestsList).each(function(index, el) {
       $("input[value=" + el + "]").first().click();
     });
+
+    $("select").val(user.location);
+
   },
 
   profileEditTemplate: function(user){
@@ -76,7 +79,7 @@ ProfileView.prototype = {
       '<div class="form-group"><label for="name">Name</label> \
       <input class="form-control" type="text" name="name" id="name" placeholder="i.e. Carol Grimes" value="' + user.name + '"> \
       </div><div class="form-group"><label for="location">Current Location</label> \
-      <select name="location" multiple class="form-control"> \
+      <select name="location" class="form-control"> \
       <option>North West</option><option>West</option><option>South West</option><option>Mid-West</option><option>South East</option><option>Mid-Atlantic</option><option>North East</option> \
       </select></div> \
       <div class="form-group"><label for="photo">Profile Picture</label> \

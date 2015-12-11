@@ -41,11 +41,12 @@ ProfileView.prototype = {
 
   },
 
-  renderUsersLikeYou: function(user) {
-    console.log("Rendering users like you")
-    var $usersLikeYou = $("<div id='users-like-you'></div>");
-    $usersLikeYou.append("<h2>Users like you</h2>");
-    $usersLikeYou.append($usersLikeYou);
+  renderSimilarUsers: function(user) {
+    console.log("Rendering similar users")
+    var $similarUsers = $("<div id='similar-users'></div>");
+    var $similarUsersCardContainer = $("<div id='similar-users-container'></div>")
+    $similarUsers.append("<h2>Similar Users</h2>");
+    $similarUsers.append($similarUsers);
     User.fetch().then(function(users){
       console.log(users);
       var cardPositions = ["left","center","right"]
@@ -65,25 +66,12 @@ ProfileView.prototype = {
         };
         usersBlock.append(unordered);
         $userCard.append(usersBlock);
-        $usersLikeYou.append($userCard);
+        $similarUsersCardContainer.append($userCard);
+
       }
-      // users.forEach( function(user) {
-        // var renUsers = new UserView(user).renderUsers(user);
-        // var usersBlock = $('<div class="card-block"></div>');
-        // self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
-        // self.$userCard.attr('id', user.id);
-        // usersBlock.append('<h2 class="card-title">' + user.name + '</h2>');
-        // usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ user.location +'</p></div>');
-        // var unordered = $('<ul></ul>');
-        // for (var i = 0; i < user.interests.length && i < 5; i++) {
-        //   unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
-        // };
-        // usersBlock.append(unordered);
-        // self.$userCard.append(usersBlock);
-        // $usersLikeYou.append(self.$userCard);
-      // });
+      $similarUsers.append($similarUsersCardContainer);
     });
-    $("body").append($usersLikeYou);
+    $("body").append($similarUsers);
   },
 
   renderEditForm: function(user){

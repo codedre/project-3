@@ -20,7 +20,7 @@ var UserView = function(user) {
     var profileView = function() {
       var renderProfile = new ProfileView(user);
       renderProfile.renderProfile(user);
-      renderProfile.renderUsersLikeYou(user);
+      renderProfile.renderSimilarUsers(user);
     };
     profileView();
   }

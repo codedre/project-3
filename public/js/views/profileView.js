@@ -29,7 +29,7 @@ ProfileView.prototype = {
     self.$profileContainer.append($left);
     self.$profileContainer.append($right);
     $(".row").append(self.$profileContainer);
-    var editButton = self.$profileContainer.find("#edit-profile");
+    var editButton = self.$profileContainer.find("#edit-button");
 
     editButton.on("click", function() {
       self.renderEditForm(self.user);
@@ -61,7 +61,11 @@ ProfileView.prototype = {
         window.location.href = "/logout";
       });
     });
-
+    var interestsList = user.interests;
+    
+    $(interestsList).each(function(index, el) {
+      $("input[value=" + el + "]").first().click();
+    });
   },
 
   profileEditTemplate: function(user){
@@ -88,7 +92,7 @@ ProfileView.prototype = {
       <input type="checkbox" name="interests" value="Wildlife" autocomplete="off"> Wildlife</label><label class="btn btn-primary"> \
       <input type="checkbox" name="interests" value="Adventure" autocomplete="off"> Adventure </label><label class="btn btn-primary"> \
       <input type="checkbox" name="interests" value="Festivals" autocomplete="off"> Festivals </label><label class="btn btn-primary"> \
-      <input type="checkbox" name="interests" value="Music" autocomplete="off"> Culture </label></div></div><div class="form-group"> \
+      <input type="checkbox" name="interests" value="Culture" autocomplete="off"> Culture </label></div></div><div class="form-group"> \
       <label for="email">Email</label><input class="form-control" type="text" name="email" id="email" value="' + user.email + '"></div> \
       \
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> \
@@ -102,13 +106,17 @@ ProfileView.prototype = {
       <input type="submit" class="btn btn-danger delete final-delete" value="Delete Profile"> \
       </div></div></div></div>'
     );
+
     return(html);
   },
 
   updateProfile: function(){
     var self = this;
-    var test = $('input:checkbox[name=interests]:checked').val();
-    console.log(test );
+    var interests = [];
+    var checkedBoxs = $("input[type='checkbox']:checked");
+    for (i=0; i < checkedBoxs.length; i++) {
+      interests.push(checkedBoxs.eq(i).val());
+    }
     var data = {
       name: $('input[name=name]').val(),
       location: $('select[name=location] option:selected').val(),
@@ -117,7 +125,7 @@ ProfileView.prototype = {
       local: {
         email: $('input[name=email]').val(),
       },
-      interests: $('input[name=interests]').val()
+      interests: interests
     };
     self.user.update(data).then(function() { self.renderProfile(self.user); });
   },

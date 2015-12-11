@@ -99,8 +99,6 @@ Card filter
   display: inline;
 }
 
-
-
 /*==================
 Cards
 ==================*/
@@ -255,7 +253,6 @@ Profile
   color: white;
 }
 
-
 /* Right Container */
 
 #right-container {
@@ -329,6 +326,35 @@ Profile
   color: black;
 }
 
+/* Similar Users */
+
+#similar-users {
+  margin-top: 100px;
+  width: 100%;
+  background-color: #e4e5e6;
+  text-align: center;
+  padding-bottom: 80px;
+  vertical-align: top;
+}
+
+#similar-users > h2 {
+  font-family: 'museo';
+  font-size: 25px;
+  padding-top: 47px;
+  margin-bottom: 5px;
+  letter-spacing: -.25px;
+}
+
+.left, .center, .right {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#similar-users-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 
 /*==================

@@ -1,7 +1,6 @@
 var ProfileView = function(user) {
   this.user = user;
   this.$profileContainer = $('<div class="profile-container"></div>');
-
 };
 
 ProfileView.prototype = {
@@ -36,11 +35,45 @@ ProfileView.prototype = {
     });
 
     // show edit controls
-    if (currentUser._id != user.id) {
+    if (currentUser.id != user.id) {
       $("#edit-button").hide();
     }
 
   },
+
+  renderSimilarUsers: function(user) {
+    console.log("Rendering similar users")
+    var $similarUsers = $("<div id='similar-users'></div>");
+    var $similarUsersCardContainer = $("<div id='similar-users-container'></div>")
+    $similarUsers.append("<h2>Similar Users</h2>");
+    $similarUsers.append($similarUsers);
+    User.fetch().then(function(users){
+      console.log(users);
+      var cardPositions = ["left","center","right"]
+      for (var i = 0; i < 3; i++) {
+        var $userCard = $('<div class="card"></div>');
+        console.log(users[i]);
+        var usersBlock = $('<div class="card-block"></div>');
+        $userCard.append('<img class="img-circle" src="'+ users[i].photo +'">');
+        $userCard.attr('id', users[i].id);
+        $userCard.attr('class', 'card ' + cardPositions[i]);
+        usersBlock.append('<h2 class="card-title">' + users[i].name + '</h2>');
+        usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ users[i].location +'</p></div>');
+        var unordered = $('<ul></ul>');
+        console.log(users[i].interests);
+        for (var j = 0; j < users[i].interests.length; j++) {
+          unordered.append('<li class="btn btn-warning">'+ users[i].interests[j] +'</li>');
+        };
+        usersBlock.append(unordered);
+        $userCard.append(usersBlock);
+        $similarUsersCardContainer.append($userCard);
+
+      }
+      $similarUsers.append($similarUsersCardContainer);
+    });
+    $("body").append($similarUsers);
+  },
+
   renderEditForm: function(user){
 
     var self = this;

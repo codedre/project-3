@@ -3,6 +3,10 @@ var UserView = function(user) {
   this.$userCard = $('<div class="card col-xs-12 col-md-3 col-lg-4"></div>');
   this.$searchContainer = $('<div class="search-container"></div>');
 
+  if (this.user.id == currentUser._id){
+    currentUser = this.user;
+  }
+
   $(this.$userCard).on("click", function() {
     handleClickEvent(user);
   });
@@ -14,7 +18,9 @@ var UserView = function(user) {
   function handleClickEvent(user){
     $('.row').empty();
     var profileView = function() {
-      var renderProfile = new ProfileView(user).renderProfile(user);
+      var renderProfile = new ProfileView(user);
+      renderProfile.renderProfile(user);
+      renderProfile.renderSimilarUsers(user);
     };
     profileView();
   }

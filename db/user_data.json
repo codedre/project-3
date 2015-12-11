@@ -7,7 +7,7 @@
     "name"         : "Earl Jimenez",
     "photo"        : "https://dl.dropboxusercontent.com/u/99892820/male-users/men35-photo-by-Mikhail-Koninin.jpg",
     "bio"          : "In id lacinia ante. Mauris consequat tortor tellus, a iaculis est maximus sed. Maecenas accumsan nibh pulvinar nunc ultrices auctor eu at risus. Integer gravida at elit nec faucibus. Nulla tempus nisl magna, ut commodo nulla viverra et. Quisque et nisl eget nisl egestas rutrum ac at tellus. Vestibulum eleifend ultrices dignissim. Quisque eget arcu orci. Mauris faucibus in nisl et sagittis. Donec sit amet lacus libero. Nam placerat id arcu in condimentum. Integer venenatis metus quam, sit amet rutrum felis dignissim eu.",
-    "interests"    : ["Foodie","Hiking","Art","Wildlife","Culture"],
+    "interests"    : ["Foodie","Hiking","Wildlife","Culture"],
     "location"     : "North West"
   },
   {
@@ -30,28 +30,6 @@
     "photo"        : "http://www.simon-li.com/projects/mongkok/cs5/images/random-user-48.jpg",
     "bio"          : "Nam laoreet, sem ac tincidunt auctor, massa risus tempus nisl, ut sollicitudin dolor diam non est. Nulla facilisi. Praesent dolor tellus, tristique a dignissim sed, sodales quis nisi. Maecenas nec tempus nulla. Maecenas tincidunt semper dui eget tempor. Phasellus ut faucibus nibh. Sed urna velit, rutrum et risus nec, ultrices cursus odio. Duis nec rhoncus massa. Aenean ligula mi, lacinia non ante eget, egestas maximus neque. Duis eu justo orci. Vivamus blandit justo neque, vitae elementum est maximus eu. Mauris vestibulum enim id urna blandit, at eleifend libero tincidunt. Vestibulum pulvinar urna at aliquam ullamcorper.",
     "interests"    : ["Foodie","Art","Festivals","Culture"],
-    "location"     : "South West"
-  },
-  {
-    "local" : {
-      "email"        : "rafael.frazier37@example.com",
-      "password"     : "String"
-    },
-    "name"         : "Rafael Frazier",
-    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/male-users/men26-photo-by-Felix-Huth.jpg",
-    "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
-    "interests"    : ["Foodie","Art","Culture"],
-    "location"     : "South West"
-  },
-  {
-    "local" : {
-      "email"        : "lillie.moore89@example.com",
-      "password"     : "String"
-    },
-    "name"         : "Lillie Moore",
-    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/female-users/women35-photo-by-Pedro-Ribeiro-Simoes.jpg",
-    "bio"          : "In id lacinia ante. Mauris consequat tortor tellus, a iaculis est maximus sed. Maecenas accumsan nibh pulvinar nunc ultrices auctor eu at risus. Integer gravida at elit nec faucibus. Nulla tempus nisl magna, ut commodo nulla viverra et. Quisque et nisl eget nisl egestas rutrum ac at tellus. Vestibulum eleifend ultrices dignissim. Quisque eget arcu orci. Mauris faucibus in nisl et sagittis. Donec sit amet lacus libero. Nam placerat id arcu in condimentum. Integer venenatis metus quam, sit amet rutrum felis dignissim eu.",
-    "interests"    : ["Foodie","Art","Wildlife","Adventure","Culture"],
     "location"     : "South West"
   },
   {
@@ -86,6 +64,17 @@
     "bio"          : "Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam aliquet feugiat urna, sed hendrerit sem semper eget. Mauris sapien ipsum, aliquam ac nunc sed, cursus varius magna. Maecenas risus eros, pharetra vitae purus gravida, maximus lobortis arcu. Quisque volutpat a eros ac lobortis. Nunc at ipsum quis metus eleifend ultrices nec eu diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
     "interests"    : ["Foodie","History","Adventure"],
     "location"     : "West"
+  },
+  {
+    "local" : {
+      "email"        : "lillie.moore89@example.com",
+      "password"     : "String"
+    },
+    "name"         : "Lillie Moore",
+    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/female-users/women35-photo-by-Pedro-Ribeiro-Simoes.jpg",
+    "bio"          : "In id lacinia ante. Mauris consequat tortor tellus, a iaculis est maximus sed. Maecenas accumsan nibh pulvinar nunc ultrices auctor eu at risus. Integer gravida at elit nec faucibus. Nulla tempus nisl magna, ut commodo nulla viverra et. Quisque et nisl eget nisl egestas rutrum ac at tellus. Vestibulum eleifend ultrices dignissim. Quisque eget arcu orci. Mauris faucibus in nisl et sagittis. Donec sit amet lacus libero. Nam placerat id arcu in condimentum. Integer venenatis metus quam, sit amet rutrum felis dignissim eu.",
+    "interests"    : ["Foodie","Art","Wildlife","Adventure","Culture"],
+    "location"     : "South West"
   },
   {
     "local" : {
@@ -141,6 +130,17 @@
     "bio"          : "Direct trade typewriter tattooed jean shorts fap try-hard, fixie gluten-free pork belly. Tousled blog gluten-free, vinyl affogato street art flexitarian four loko tacos jean shorts. VHS letterpress marfa scenester bespoke pitchfork shabby chic fashion axe shoreditch, blue bottle literally knausgaard.",
     "interests"    : ["Foodie","Art","Wildlife","Festivals"],
     "location"     : "North East"
+  },
+  {
+    "local" : {
+      "email"        : "rafael.frazier37@example.com",
+      "password"     : "String"
+    },
+    "name"         : "Rafael Frazier",
+    "photo"        : "https://dl.dropboxusercontent.com/u/99892820/male-users/men26-photo-by-Felix-Huth.jpg",
+    "bio"          : "Pellentesque imperdiet neque mollis, ultricies tellus id, cursus augue. Curabitur ac magna vehicula, semper nunc nec, tempor nibh. Proin non consequat magna. Fusce ut nunc suscipit, tempor nibh id, elementum purus. Proin consequat scelerisque accumsan.",
+    "interests"    : ["Foodie","Art","Culture"],
+    "location"     : "South West"
   },
   {
     "local" : {

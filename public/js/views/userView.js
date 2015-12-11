@@ -18,7 +18,9 @@ var UserView = function(user) {
   function handleClickEvent(user){
     $('.row').empty();
     var profileView = function() {
-      var renderProfile = new ProfileView(user).renderProfile(user);
+      var renderProfile = new ProfileView(user);
+      renderProfile.renderProfile(user);
+      renderProfile.renderSimilarUsers(user);
     };
     profileView();
   }

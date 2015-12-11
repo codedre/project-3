@@ -15,7 +15,7 @@ var UserView = function(user) {
     handleClickEvent(currentUser);
   });
 
-  function handleClickEvent(user){
+  handleClickEvent = function(user){
     $('.row').empty();
     var profileView = function() {
       var renderProfile = new ProfileView(user);
@@ -23,7 +23,7 @@ var UserView = function(user) {
       renderProfile.renderSimilarUsers(user);
     };
     profileView();
-  }
+  };
 
   $('#filterLocation').on("change", function() {
     var val = $('#filterLocation option:selected').val();

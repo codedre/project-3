@@ -26,7 +26,6 @@ $(document).ready(function() {
         users.forEach( function(user) {
           var renUsers = new UserView(user).renderUsers(user);
         });
-
       });
     }
 });

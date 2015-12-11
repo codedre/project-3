@@ -283,21 +283,42 @@ Profile
   line-height: 18px;
 }
 
-#edit-profile {
+.button {
   margin-top: 20px;
-  border: 1px solid #808285;
-  padding: 0 10px;
+  margin-right: 12px;
+  padding: 0 13px;
   height: 33px;
   font-size: 10px;
   font-weight: bold;
   letter-spacing: .15px;
-  background-color: white;
 }
 
-#edit-profile:hover {
+#contact-button {
   background-color: black;
   color: white;
 }
+
+#contact-button:hover {
+  background-color: #fcd945;
+  color: black;
+}
+
+#contact-button:active {
+  background-color: black;
+  color: #fcd945;
+}
+
+#edit-button {
+  border: 1px solid #989898;
+  color: #989898;
+  background-color: white;
+}
+
+#edit-button:hover {
+  border: 1px solid black;
+  color: black;
+}
+
 
 
 /*==================

@@ -99,8 +99,6 @@ Card filter
   display: inline;
 }
 
-
-
 /*==================
 Cards
 ==================*/
@@ -255,7 +253,6 @@ Profile
   color: white;
 }
 
-
 /* Right Container */
 
 #right-container {
@@ -329,7 +326,22 @@ Profile
   color: black;
 }
 
+/* Users Like You */
 
+#users-like-you {
+  margin-top: 140px;
+  width: 100%;
+  height: 500px;
+  background-color: #e4e5e6;
+  text-align: center;
+}
+
+#users-like-you > h2 {
+  font-family: 'museo';
+  font-size: 25px;
+  padding-top: 40px;
+  letter-spacing: -.25px;
+}
 
 /*==================
 Media Queries - User#Show

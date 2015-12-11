@@ -1,7 +1,6 @@
 var ProfileView = function(user) {
   this.user = user;
   this.$profileContainer = $('<div class="profile-container"></div>');
-
 };
 
 ProfileView.prototype = {
@@ -41,6 +40,52 @@ ProfileView.prototype = {
     }
 
   },
+
+  renderUsersLikeYou: function(user) {
+    console.log("Rendering users like you")
+    var $usersLikeYou = $("<div id='users-like-you'></div>");
+    $usersLikeYou.append("<h2>Users like you</h2>");
+    $usersLikeYou.append($usersLikeYou);
+    User.fetch().then(function(users){
+      console.log(users);
+      var cardPositions = ["left","center","right"]
+      for (var i = 0; i < 3; i++) {
+        var $userCard = $('<div class="card"></div>');
+        console.log(users[i]);
+        var usersBlock = $('<div class="card-block"></div>');
+        $userCard.append('<img class="img-circle" src="'+ users[i].photo +'">');
+        $userCard.attr('id', users[i].id);
+        $userCard.attr('class', 'card ' + cardPositions[i]);
+        usersBlock.append('<h2 class="card-title">' + users[i].name + '</h2>');
+        usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ users[i].location +'</p></div>');
+        var unordered = $('<ul></ul>');
+        console.log(users[i].interests);
+        for (var j = 0; j < users[i].interests.length; j++) {
+          unordered.append('<li class="btn btn-warning">'+ users[i].interests[j] +'</li>');
+        };
+        usersBlock.append(unordered);
+        $userCard.append(usersBlock);
+        $usersLikeYou.append($userCard);
+      }
+      // users.forEach( function(user) {
+        // var renUsers = new UserView(user).renderUsers(user);
+        // var usersBlock = $('<div class="card-block"></div>');
+        // self.$userCard.append('<img class="img-circle" src="'+ user.photo +'">');
+        // self.$userCard.attr('id', user.id);
+        // usersBlock.append('<h2 class="card-title">' + user.name + '</h2>');
+        // usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ user.location +'</p></div>');
+        // var unordered = $('<ul></ul>');
+        // for (var i = 0; i < user.interests.length && i < 5; i++) {
+        //   unordered.append('<li class="btn btn-warning">'+ user.interests[i] +'</li>');
+        // };
+        // usersBlock.append(unordered);
+        // self.$userCard.append(usersBlock);
+        // $usersLikeYou.append(self.$userCard);
+      // });
+    });
+    $("body").append($usersLikeYou);
+  },
+
   renderEditForm: function(user){
 
     var self = this;

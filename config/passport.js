@@ -2,7 +2,7 @@ var FacebookStrategy  = require("passport-facebook").Strategy;
 var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
-var env               = require("../env");
+// var env               = require("../env");
 
 module.exports = function(passport) {
 
@@ -72,10 +72,9 @@ module.exports = function(passport) {
 
   // Facebook login
   passport.use('facebook', new FacebookStrategy({
-    // Here we reference the values in env.js.
-    clientID: env.facebookID,
-    clientSecret: env.facebookSecret,
-    callbackURL: env.facebookCallbackURL,
+    clientID: process.facebookID,
+    clientSecret: process.facebookSecret,
+    callbackURL: process.facebookCallbackURL,
     profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done) {
     process.nextTick(function(){
@@ -109,9 +108,9 @@ module.exports = function(passport) {
   // Google login
   passport.use('google', new GoogleStrategy({
     // Here we reference the values in env.js.
-    clientID: env.googleID,
-    clientSecret: env.googleSecret,
-    callbackURL: env.googleCallbackURL,
+    clientID: process.googleID,
+    clientSecret: process.googleSecret,
+    callbackURL: process.googleCallbackURL,
     profileFields: ['id', 'name','image_size:800px', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){

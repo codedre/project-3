@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  // this is really clever! I'd suggest putting it into a named function to
+  // make it clearer what it's doing...
   currentUser = '';
   $.getJSON('/auth').then(function(json) {
       if(json.isAuthenticated === "true"){

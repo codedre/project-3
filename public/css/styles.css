@@ -1,3 +1,13 @@
+/*
+  for being in one file, this CSS is pretty well structured and
+  clean. that said, I'd break each sub-section into separate files
+  to help enforce that separation, and to make your CSS more modular
+  (SASS would help with this too, once we cover that!)
+
+  Also, overall, I really liked your app's styles!
+*/
+
+
 /*==================
 Core Styles
 ==================*/

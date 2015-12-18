@@ -11,6 +11,9 @@ function getSignup(request, response) {
 // POST /signup
 function postSignup(request, response) {
   var signupStrategy = passport.authenticate("local-signup", {
+    // from a UX standpoint, I feel like it'd be better to
+    // redirect to the the user's edit page after sucessful
+    // authentication so they can fill out their profile
     successRedirect : '/user/index',
     failureRedirect : '/signup',
     failureFlash : true
@@ -87,6 +90,11 @@ function deleteUserProfile(req,res) {
   });
 }
 
+// I get that you were following the style of method names
+// that we used in the authentication class,
+// (e.g. getLogin, postLogin, etc) but I'd actually
+// suggest following more restful conventions:
+// index, show, edit, update, create, destroy
 module.exports = {
   getLogin: getLogin,
   postLogin: postLogin ,

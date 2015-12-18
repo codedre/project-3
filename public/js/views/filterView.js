@@ -30,6 +30,6 @@ FilterView.prototype = {
     return(html);
   },
   filterListener: function() {
-
+    // remove non-functional code! or at least document it as such
   }
 };

@@ -6,11 +6,21 @@ var userData = require("./user_data");
 
 
 // TODO Why is error a string here? Will err.message be logged?
+// Answer: `on` is listening for events from the DB, and 'error'
+// is the name of one such event. (much like "click" for browser JS
+// or the 'auth:login-success' events we saw in angular)
 db.on("error", function(err){
   console.log("Oops! Mongo threw an error. Is `mongod` running?");
   console.log(err.message);
   process.exit();
 });
+
+// this section is really well written! it demonstrates correct
+// understanding of the async nature of JS, and uses well-named
+// vars and functions. One note... I don't think you need to
+// define your own custom forEach function. It's standard in
+// node.js, you should be able to use:
+// userData.forEach(function(userDatum) { .... })
 
 db.once("open", function () {
   console.log("Connected to the database.");

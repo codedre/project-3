@@ -20,6 +20,7 @@ module.exports = function(passport) {
     usernameField : "email",
     passwordField : "password",
     passReqToCallback : true
+    // minor detail, but indentation below should be in one
   }, function(req, email, password, callback){
     // Find a user with this e-mail
     User.findOne({ "local.email" : email }, function(err, user) {
@@ -89,6 +90,8 @@ module.exports = function(passport) {
           // Otherwise, create a brand new user using information passed from Twitter.
           var newUser = new User();
 
+          // looks like you copy/pasted code and comments without upating...
+          // since it says twitter... be careful with copy/paste!
           // Here we're saving information passed to us from Twitter.
           newUser.facebook.id = profile.id;
           newUser.facebook.token = token;
@@ -96,7 +99,7 @@ module.exports = function(passport) {
           newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
           newUser.facebook.provider = profile.provider;
           newUser.bio = profile.bio;
-
+          // would it be possible to save the user's email(s) from FB here too?
           newUser.save(function(err){
             if(err) throw err;
             return done(null, newUser);

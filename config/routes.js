@@ -1,3 +1,21 @@
+// excellent job here with your routes. I like how everything is
+// organized and using controllers.
+// one suggestion (small would be to make better use of whitespace
+// and new lines to group related sections of code more clearly)
+// for example, iI'd put a new line above the require statement for
+// controllers, to separate it from require statments for libraries
+// also, alignment of equal signs helps a lot too:
+
+// var express    = require('express');
+// var router     = express.Router();
+//
+// var bodyParser     = require('body-parser'); // Parses information from POST
+// var methodOverride = require('method-override'); // Used to manipulate POST methods
+// var passport       = require("passport");
+//
+// var usersController    = require('../controllers/users');
+// var staticsController  = require('../controllers/statics');
+
 var express = require('express');
 var router = express.Router();
 // Parses information from POST
@@ -11,6 +29,9 @@ var staticsController = require('../controllers/statics');
 router.route('/')
   .get(staticsController.home);
 
+// why this one exception where you use an anonymous function?
+// I'd try to be consistent and use a controller method here too.
+// also, a more descriptive path would be nice, such as GET /auth/validate
 router.route('/auth').get(function(req,res){
   var currentUser = req.user;
   if (req.user){

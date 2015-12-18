@@ -25,21 +25,7 @@ var UserView = function(user) {
     profileView();
   };
 
-  $('#filterLocation').on("change", function() {
-    var val = $('#filterLocation option:selected').val();
-    var $cards = $(".location-text");
 
-    $cards.each(function(index, el){
-      $el = $(el);
-      if (val === 'All') {
-        $el.parents(':eq(2)').show();
-      } else if ($el.text() != val) {
-        $el.parents(':eq(2)').hide();
-      } else if ($el.text() == val) {
-        $el.parents(':eq(2)').show();
-      }
-    });
-  });
 
 };
 

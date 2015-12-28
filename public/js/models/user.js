@@ -1,4 +1,10 @@
 var User = function(info) {
+  // I'm seeing a lot of repeated code, you could either use a method here to
+  // capture the structure, and call it for each property, or, use a shorter form:
+  // this.name   = info.name || '';
+  // this.photo  = info.photo || '';
+  // this.email  = info.email || '';
+  // this.bio    = info.bio || '';
   undefined !== info.name ? this.name = info.name : this.name = '';
   undefined !== info.photo ? this.photo = info.photo : this.photo = '';
   undefined !== info.local ? this.email = info.local.email : this.email = '';
@@ -36,8 +42,10 @@ User.prototype = {
     self.reload(updatedUserInfo);
   });
   return request;
-},
+},  // indentation is off here!
   reload: function(newData) {
+    // this code is a bit complex, I'd document what it's doing and why
+    // I also suspect there's an easier way to do this
     for(var attrname in newData) {
       if (attrname === "local") {
         if (null !== newData[attrname].email) {

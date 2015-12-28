@@ -1,3 +1,5 @@
+// to me this feels like it could be just a static HTML page.. it's not rendering
+// any dynamic data, nor is it adding a lot of functionality.
 var WelcomeView = function() {
   this.$onboard = $('<div class="onboard"></div>');
   this.$login = $('<div class="onboard-btn onboard-google"><a href="/auth/google">Enter with Google</a></div>');

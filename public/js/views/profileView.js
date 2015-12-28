@@ -41,6 +41,7 @@ ProfileView.prototype = {
 
   },
 
+  // this function is really long... I'd break it up into smaller pieces...
   renderSimilarUsers: function(user) {
     var $similarUsers = $("<div id='similar-users'></div>");
     var $similarUsersCardContainer = $("<div id='similar-users-container'></div>");
@@ -55,6 +56,7 @@ ProfileView.prototype = {
           }
       });
 
+      // to me this almost feels like it should be instantiating another sub-view
       var cardPositions = ["left","center","right"];
       if (filteredUsers.length <= 3){
       for (var i = 0; i < filteredUsers.length; i++) {

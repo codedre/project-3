@@ -2,7 +2,7 @@ var FacebookStrategy  = require("passport-facebook").Strategy;
 var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
-process.env               = require("../env");
+process.env           = require("../env");
 
 module.exports = function(passport) {
 
@@ -20,28 +20,27 @@ module.exports = function(passport) {
     usernameField : "email",
     passwordField : "password",
     passReqToCallback : true
-    // minor detail, but indentation below should be in one
   }, function(req, email, password, callback){
     // Find a user with this e-mail
-    User.findOne({ "local.email" : email }, function(err, user) {
-      if (err) return callback(err);
+      User.findOne({ "local.email" : email }, function(err, user) {
+        if (err) return callback(err);
 
-      // If there already is a user with this email
-      if (user) {
-        return callback(null, false, req.flash("signupMessage", "This email is already used."));
-      } else {
-        // There is no email registered with this email
+        // If there already is a user with this email
+        if (user) {
+          return callback(null, false, req.flash("signupMessage", "This email is already used."));
+        } else {
+          // There is no email registered with this email
 
-        // Create a new user
-        var newUser = new User();
-        newUser.local.email = email;
-        newUser.local.password = newUser.encrypt(password);
+          // Create a new user
+          var newUser = new User();
+          newUser.local.email = email;
+          newUser.local.password = newUser.encrypt(password);
 
-        newUser.save(function(err) {
-          if (err) throw err;
-          return callback(null, newUser);
-        });
-      }
+          newUser.save(function(err) {
+            if (err) throw err;
+            return callback(null, newUser);
+          });
+        }
     });
   }));
 
@@ -90,9 +89,7 @@ module.exports = function(passport) {
           // Otherwise, create a brand new user using information passed from Twitter.
           var newUser = new User();
 
-          // looks like you copy/pasted code and comments without upating...
-          // since it says twitter... be careful with copy/paste!
-          // Here we're saving information passed to us from Twitter.
+          // Here we're saving information passed to us from Facebook.
           newUser.facebook.id = profile.id;
           newUser.facebook.token = token;
           newUser.name = profile.displayName;

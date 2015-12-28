@@ -16,15 +16,15 @@
 // var usersController    = require('../controllers/users');
 // var staticsController  = require('../controllers/statics');
 
-var express = require('express');
-var router = express.Router();
+var express               = require('express');
+var router                = express.Router();
 // Parses information from POST
-var bodyParser = require('body-parser');
+var bodyParser            = require('body-parser');
 // Used to manipulate POST methods
-var methodOverride = require('method-override');
-var passport = require("passport");
-var usersController = require('../controllers/users');
-var staticsController = require('../controllers/statics');
+var methodOverride        = require('method-override');
+var passport              = require("passport");
+var usersController       = require('../controllers/users');
+var staticsController     = require('../controllers/statics');
 
 router.route('/')
   .get(staticsController.home);
@@ -32,14 +32,8 @@ router.route('/')
 // why this one exception where you use an anonymous function?
 // I'd try to be consistent and use a controller method here too.
 // also, a more descriptive path would be nice, such as GET /auth/validate
-router.route('/auth').get(function(req,res){
-  var currentUser = req.user;
-  if (req.user){
-    res.json({isAuthenticated : "true", user: currentUser});
-  }else {
-    res.json({isAuthenticated : "false"});
-  }
-});
+
+router.get('/auth/validate', usersController.validateUser);
 
 router.route('/signup')
   .get(usersController.getSignup)
@@ -76,9 +70,7 @@ router.route('/auth/google/callback')
   }));
 
 router.get("/user/index.:format?", usersController.getUserIndex);
-
 router.get("/user/:id.:format?", usersController.getUserShow);
-
 router.delete("/user/:id", usersController.deleteUserProfile);
 router.patch("/user/:id", usersController.patchUserEdit);
 router.get("/user/:id/edit", usersController.getUserEdit);

@@ -90,6 +90,15 @@ function deleteUserProfile(req,res) {
   });
 }
 
+function validateUser(req, res) {
+  var currentUser = req.user;
+  if (req.user){
+    res.json({isAuthenticated : "true", user: currentUser});
+  } else {
+    res.json({isAuthenticated : "false"});
+  }
+}
+
 // I get that you were following the style of method names
 // that we used in the authentication class,
 // (e.g. getLogin, postLogin, etc) but I'd actually
@@ -105,5 +114,6 @@ module.exports = {
   getUserShow : getUserShow,
   getUserEdit : getUserEdit,
   patchUserEdit : patchUserEdit,
-  deleteUserProfile : deleteUserProfile
+  deleteUserProfile : deleteUserProfile,
+  validateUser : validateUser
 };

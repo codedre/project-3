@@ -2,7 +2,7 @@ $(document).ready(function() {
   // this is really clever! I'd suggest putting it into a named function to
   // make it clearer what it's doing...
   currentUser = '';
-  $.getJSON('/auth').then(function(json) {
+  $.getJSON('/auth/validate').then(function(json) {
     if(json.isAuthenticated === "true"){
       currentUser = json.user;
       $(".logout-btn").html("Logout " + currentUser.name );

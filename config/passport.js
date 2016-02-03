@@ -2,7 +2,7 @@ var FacebookStrategy  = require("passport-facebook").Strategy;
 var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
-process.env           = require("../env");
+// process.env           = require("../env");
 
 module.exports = function(passport) {
 
@@ -131,9 +131,9 @@ module.exports = function(passport) {
           newUser.google.id = profile.id;
           newUser.google.token = token;
           newUser.name = profile.displayName;
-          newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
+          newUser.photo = profile.photos ? profile.image.url : '/img/faces/unknown-user-pic.jpg';
           newUser.google.provider = profile.provider;
-          newUser.bio = profile.bio;
+          newUser.bio = profile.tagline;
           newUser.local.email = profile.emails[0].value;
 
           newUser.save(function(err){

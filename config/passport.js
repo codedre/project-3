@@ -116,7 +116,7 @@ module.exports = function(passport) {
     profileFields: ['id', 'name','image_size:800px', 'emails', 'displayName', 'about', 'bio']
   }, function(token, secret, profile, done){
     process.nextTick(function(){
-      console.log(profile);
+      console.log(profile.emails);
       User.findOne({'google.id': profile.id}, function(err, user) {
         if(err) return done(err);
 
@@ -134,6 +134,7 @@ module.exports = function(passport) {
           newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
           newUser.google.provider = profile.provider;
           newUser.bio = profile.bio;
+          newUser.local.email = profile.emails[0].value;
 
           newUser.save(function(err){
             if(err) throw err;

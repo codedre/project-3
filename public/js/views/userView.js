@@ -11,10 +11,6 @@ var UserView = function(user) {
     handleClickEvent(user);
   });
 
-  $(".profile-btn").on("click", function() {
-    handleClickEvent(currentUser);
-  });
-
   handleClickEvent = function(user){
     $('.row').empty();
     var profileView = function() {

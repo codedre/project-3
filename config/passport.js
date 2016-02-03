@@ -76,7 +76,7 @@ module.exports = function(passport) {
     clientID: process.env.facebookID,
     clientSecret: process.env.facebookSecret,
     callbackURL: process.env.facebookCallbackURL,
-    profileFields: ['id', 'name','picture.type(large)', 'emails', 'displayName', 'about', 'bio']
+    profileFields: ['id', 'emails','picture.type(large)', 'displayName', 'bio']
   }, function(token, secret, profile, done) {
     process.nextTick(function(){
       User.findOne({'facebook.id': profile.id}, function(err, user) {
@@ -96,6 +96,7 @@ module.exports = function(passport) {
           newUser.photo = profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg';
           newUser.facebook.provider = profile.provider;
           newUser.bio = profile.bio;
+          newUser.local.email = profile.emails[0].value;
           // would it be possible to save the user's email(s) from FB here too?
           newUser.save(function(err){
             if(err) throw err;

@@ -1,4 +1,5 @@
 var User = function(info) {
+  console.log(info.local.email);
   this.name         = info.name || '';
   this.photo        = info.photo || '';
   this.email        = info.local.email || '';
@@ -68,9 +69,9 @@ User.prototype = {
 };
 
 
-var me=[];
-for (var variable in object) {
-  if (object.hasOwnProperty(variable)) {
-
-  }
-}
+// var me=[];
+// for (var variable in object) {
+//   if (object.hasOwnProperty(variable)) {
+//
+//   }
+// }

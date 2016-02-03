@@ -58,28 +58,52 @@ ProfileView.prototype = {
 
       // to me this almost feels like it should be instantiating another sub-view
       var cardPositions = ["left","center","right"];
-      if (filteredUsers.length <= 3){
-      for (var i = 0; i < filteredUsers.length; i++) {
-        var $userCard = $('<div class="card"></div>');
-        // console.log(users[i]);
-        var usersBlock = $('<div class="card-block"></div>');
-        $userCard.append('<img class="img-circle" src="' + filteredUsers[i].photo + '">');
-        $userCard.attr('id', filteredUsers[i].id);
-        $userCard.attr('class', 'card ' + cardPositions[i]);
-        usersBlock.append('<h2 class="card-title">' + filteredUsers[i].name + '</h2>');
-        usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ filteredUsers[i].location +'</p></div>');
-        var unordered = $('<ul></ul>');
-        // console.log(users[i].interests);
-        for (var j = 0; j < filteredUsers[i].interests.length; j++) {
-          unordered.append('<li class="btn btn-warning">'+ filteredUsers[i].interests[j] +'</li>');
-        }
-        usersBlock.append(unordered);
-        $userCard.append(usersBlock);
-        $similarUsersCardContainer.append($userCard);
+      // if (filteredUsers.length <= 3){
+      //   for (var i = 0; i < filteredUsers.length; i++) {
+      //     var $userCard = $('<div class="card"></div>');
+      //     // console.log(users[i]);
+      //     var usersBlock = $('<div class="card-block"></div>');
+      //     $userCard.append('<img class="img-circle" src="' + filteredUsers[i].photo + '">');
+      //     $userCard.attr('id', filteredUsers[i].id);
+      //     $userCard.attr('class', 'card ' + cardPositions[i]);
+      //     usersBlock.append('<h2 class="card-title">' + filteredUsers[i].name + '</h2>');
+      //     usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ filteredUsers[i].location +'</p></div>');
+      //     var unordered = $('<ul></ul>');
+      //     // console.log(users[i].interests);
+      //     for (var j = 0; j < filteredUsers[i].interests.length; j++) {
+      //       unordered.append('<li class="btn btn-warning">'+ filteredUsers[i].interests[j] +'</li>');
+      //     }
+      //     usersBlock.append(unordered);
+      //     $userCard.append(usersBlock);
+      //     $similarUsersCardContainer.append($userCard);
+      //
+      //   }
+      // $similarUsers.append($similarUsersCardContainer);
+      // }
 
-      }
-      $similarUsers.append($similarUsersCardContainer);
-    }
+        var index = 0;
+        while (index < 3) {
+          var $userCard = $('<div class="card"></div>');
+          // console.log(users[i]);
+          var usersBlock = $('<div class="card-block"></div>');
+          $userCard.append('<img class="img-circle" src="' + filteredUsers[index].photo + '">');
+          $userCard.attr('id', filteredUsers[index].id);
+          $userCard.attr('class', 'card ' + cardPositions[index]);
+          usersBlock.append('<h2 class="card-title">' + filteredUsers[index].name + '</h2>');
+          usersBlock.append('<div class="card-text"><img src="/images/pin.png" class="pin"> <p class="location-text">'+ filteredUsers[index].location +'</p></div>');
+          var unordered = $('<ul></ul>');
+          // console.log(users[i].interests);
+          for (var j = 0; j < filteredUsers[index].interests.length; j++) {
+            unordered.append('<li class="btn btn-warning">'+ filteredUsers[index].interests[j] +'</li>');
+          }
+          usersBlock.append(unordered);
+          $userCard.append(usersBlock);
+          $similarUsersCardContainer.append($userCard);
+
+          $similarUsers.append($similarUsersCardContainer);
+          index++;
+        }
+
     });
     $("body").append($similarUsers);
   },

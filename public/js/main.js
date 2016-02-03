@@ -13,6 +13,8 @@ $(document).ready(function() {
     }
   });
 
+
+
   function loadUserIndexView(){
     // add row
     var row = $("<div class='row' id='row-style'></div>");
@@ -29,5 +31,21 @@ $(document).ready(function() {
         var renUsers = new UserView(user).renderUsers(user);
       });
     });
+
+    // my profile page
+    $(".profile-btn").on("click", function() {
+      clickEvent(currentUser);
+    });
+
+    clickEvent = function(user){
+      console.log(user);
+      $('.row').empty();
+      var profileView = function() {
+        var renderProfile = new ProfileView(user);
+        renderProfile.renderProfile(user);
+        renderProfile.renderSimilarUsers(user);
+      };
+      profileView();
+    };
   }
 });

@@ -1,5 +1,4 @@
 var User = function(info) {
-  console.log(info.local.email);
   this.name         = info.name || '';
   this.photo        = info.photo || '';
   this.email        = info.local.email || '';

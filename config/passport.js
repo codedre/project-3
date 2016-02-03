@@ -2,7 +2,7 @@ var FacebookStrategy  = require("passport-facebook").Strategy;
 var GoogleStrategy    = require("passport-google-oauth2").Strategy;
 var LocalStrategy     = require("passport-local").Strategy;
 var User              = require("../models/user");
-// process.env           = require("../env");
+process.env           = require("../env");
 
 module.exports = function(passport) {
 
